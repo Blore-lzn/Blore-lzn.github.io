@@ -208,7 +208,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-07-17 00:03:17 / Modified: 00:11:45" itemprop="dateCreated datePublished" datetime="2021-07-17T00:03:17+08:00">2021-07-17</time>
+      <time title="Created: 2021-07-17 00:03:17 / Modified: 00:12:35" itemprop="dateCreated datePublished" datetime="2021-07-17T00:03:17+08:00">2021-07-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -317,7 +317,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/17/ConcreteMathematicsChapter1/" class="post-title-link" itemprop="url">具体数学第一章</a>
+          <a href="/2021/07/17/ConcreteMathematicsChapter1/" class="post-title-link" itemprop="url">具体数学第一章（更新ing）</a>
         </h2>
 
         <div class="post-meta-container">
@@ -329,7 +329,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-07-17 00:02:55 / Modified: 00:10:05" itemprop="dateCreated datePublished" datetime="2021-07-17T00:02:55+08:00">2021-07-17</time>
+      <time title="Created: 2021-07-17 00:02:55 / Modified: 00:14:38" itemprop="dateCreated datePublished" datetime="2021-07-17T00:02:55+08:00">2021-07-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -360,8 +360,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-<h1 id="第一章-递归问题"><a href="#第一章-递归问题" class="headerlink" title="第一章 递归问题"></a>第一章 递归问题</h1><h2 id="热身题"><a href="#热身题" class="headerlink" title="热身题"></a>热身题</h2><h3 id="2-汉诺塔问题，但不允许在A、C间直接移动"><a href="#2-汉诺塔问题，但不允许在A、C间直接移动" class="headerlink" title="2. 汉诺塔问题，但不允许在A、C间直接移动"></a>2. 汉诺塔问题，但不允许在A、C间直接移动</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> cnt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">hanoi</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">char</span> x, <span class="keyword">char</span> y, <span class="keyword">char</span> z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">hanoi</span>(n - <span class="number">1</span>, x, y, z);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;move %d from %c to %c\n&quot;</span>, n, x, y);</span><br><span class="line">        cnt++;</span><br><span class="line">        <span class="built_in">hanoi</span>(n - <span class="number">1</span>, z, y, x);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;move %d from %c to %c\n&quot;</span>, n, y, z);</span><br><span class="line">        cnt++;</span><br><span class="line">        <span class="built_in">hanoi</span>(n - <span class="number">1</span>, x, y, z);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;input n: &quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="built_in">hanoi</span>(n, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;总次数：%d\n&quot;</span>, cnt);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h3 id="第一章-递归问题"><a href="#第一章-递归问题" class="headerlink" title="第一章 递归问题"></a>第一章 递归问题</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/17/ConcreteMathematicsChapter1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -410,10 +417,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-07-15 21:01:10 / Modified: 22:01:59" itemprop="dateCreated datePublished" datetime="2021-07-15T21:01:10+08:00">2021-07-15</time>
+      <time title="Created: 2021-07-15 21:01:10" itemprop="dateCreated datePublished" datetime="2021-07-15T21:01:10+08:00">2021-07-15</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-07-17 00:16:50" itemprop="dateModified" datetime="2021-07-17T00:16:50+08:00">2021-07-17</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -432,7 +445,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>3.9k</span>
+      <span>4k</span>
     </span>
 </div>
 
@@ -468,11 +481,12 @@
 </tr>
 <tr>
 <td>难度</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>800</td>
+<td>1000</td>
+<td>1700</td>
+<td>2300</td>
+<td>2500</td>
+<td>2700</td>
 </tr>
 </tbody>
 </table>
