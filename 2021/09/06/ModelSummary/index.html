@@ -20,13 +20,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blore-lzn.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="数学建模常见的赛题类型预测类赛题所谓的预测类问题，指的是通过分析已有数据或现象，找出其内在发展规律，然后对未来情形做出预测的过程。 根据已知条件和求解目的，往往将预测类问题分为：小样本内部预测，大样本内部预测，小样本未来预测，大样本随机因素或周期特征的未来预测，大样本的未来预测 分析：预测问题主要是以某个小问的形式出现，很少有整个赛题所有小问全是预测要求的，但也建议大家认真对待 评价类赛题所谓的评">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ModelSummary">
+<meta property="og:title" content="数学建模常见方法小结">
 <meta property="og:url" content="https://blore-lzn.github.io/2021/09/06/ModelSummary/index.html">
 <meta property="og:site_name" content="Blore&#39;s Home">
+<meta property="og:description" content="数学建模常见的赛题类型预测类赛题所谓的预测类问题，指的是通过分析已有数据或现象，找出其内在发展规律，然后对未来情形做出预测的过程。 根据已知条件和求解目的，往往将预测类问题分为：小样本内部预测，大样本内部预测，小样本未来预测，大样本随机因素或周期特征的未来预测，大样本的未来预测 分析：预测问题主要是以某个小问的形式出现，很少有整个赛题所有小问全是预测要求的，但也建议大家认真对待 评价类赛题所谓的评">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-09-06T11:27:57.000Z">
-<meta property="article:modified_time" content="2021-09-06T12:10:05.360Z">
+<meta property="article:modified_time" content="2021-09-06T12:25:22.864Z">
 <meta property="article:author" content="Blore">
 <meta name="twitter:card" content="summary">
 
@@ -35,10 +37,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blore-lzn.github.io/2021/09/06/ModelSummary/","path":"2021/09/06/ModelSummary/","title":"ModelSummary"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blore-lzn.github.io/2021/09/06/ModelSummary/","path":"2021/09/06/ModelSummary/","title":"数学建模常见方法小结"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>ModelSummary | Blore's Home</title>
+<title>数学建模常见方法小结 | Blore's Home</title>
   
 
 
@@ -104,7 +106,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -117,6 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%B8%B8%E8%A7%81%E7%9A%84%E8%B5%9B%E9%A2%98%E7%B1%BB%E5%9E%8B"><span class="nav-text">数学建模常见的赛题类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E6%B5%8B%E7%B1%BB%E8%B5%9B%E9%A2%98"><span class="nav-text">预测类赛题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%84%E4%BB%B7%E7%B1%BB%E8%B5%9B%E9%A2%98"><span class="nav-text">评价类赛题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E7%90%86%E5%88%86%E6%9E%90%E7%B1%BB%E8%B5%9B%E9%A2%98"><span class="nav-text">机理分析类赛题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%B1%BB%E8%B5%9B%E9%A2%98"><span class="nav-text">优化类赛题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AE%97%E6%B3%95%E4%BD%93%E7%B3%BB%E5%88%86%E7%B1%BB"><span class="nav-text">数学建模算法体系分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">数据预处理模型及应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">优化类模型及应用场景</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -207,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ModelSummary
+          数学建模常见方法小结
         </h1>
 
         <div class="post-meta-container">
@@ -219,7 +222,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-09-06 19:27:57 / Modified: 20:10:05" itemprop="dateCreated datePublished" datetime="2021-09-06T19:27:57+08:00">2021-09-06</time>
+      <time title="Created: 2021-09-06 19:27:57 / Modified: 20:25:22" itemprop="dateCreated datePublished" datetime="2021-09-06T19:27:57+08:00">2021-09-06</time>
     </span>
 
   
@@ -237,7 +240,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>0</span>
+      <span>1.7k</span>
     </span>
 </div>
 
@@ -248,7 +251,41 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <h2 id="数学建模常见的赛题类型"><a href="#数学建模常见的赛题类型" class="headerlink" title="数学建模常见的赛题类型"></a><strong>数学建模常见的赛题类型</strong></h2><h3 id="预测类赛题"><a href="#预测类赛题" class="headerlink" title="预测类赛题"></a><strong>预测类赛题</strong></h3><p>所谓的预测类问题，指的是通过分析已有数据或现象，找出其内在发展规律，然后对未来情形做出预测的过程。</p>
+<p>根据已知条件和求解目的，往往将预测类问题分为：小样本内部预测，大样本内部预测，小样本未来预测，大样本随机因素或周期特征的未来预测，大样本的未来预测</p>
+<p>分析：预测问题主要是以某个小问的形式出现，很少有整个赛题所有小问全是预测要求的，但也建议大家认真对待</p>
+<h3 id="评价类赛题"><a href="#评价类赛题" class="headerlink" title="评价类赛题"></a><strong>评价类赛题</strong></h3><p>所谓的评价类问题，指的是按照一定的标准对事物的发展或现状进行划分的过程，在数学建模中出题点可体现在对生态环境、社会建设、方案策略等进行评价。评价类赛题往往没有明确的指标体系和评价标准，往往是需要同学们查阅各类资料进行构建的，因此评价类赛题也没有明确的答案。</p>
+<p>分析：评价类问题近些年在美赛赛题中频繁出现，解决评价类赛题的关键是指标体系的构建，构建完评价体系后在选择合适的评价方法即可，体系建立应秉持全面、准确、独立的三要素</p>
+<h3 id="机理分析类赛题"><a href="#机理分析类赛题" class="headerlink" title="机理分析类赛题"></a><strong>机理分析类赛题</strong></h3><p>机理分析是根据对现实对象特性的认识，分析其因果关系，找出反映内部机理的规律。在求解机理分析类问题时首先需要探寻与问题相关的物理、化学、经济等相关的知识，然后通过对已知数据或现象的分析对事物的内在规律做出必要的假设，最后通过构建合适的方程或关系式对其内在规律进行数值表达。机理分析在国赛美赛中的出题点较多，如2014年国赛A题：嫦娥三号软着陆轨道设计与控制策略、2016国赛B题小区开放对道路通行的影响、2013美赛MCM(A):车辆右行问题</p>
+<p>分析：机理分析立足于建立事物内部的规律，相对于其他类型的赛题均有章可循，机理分析类赛题往往需要结合众多关联知识才可以进行求解，如空气动力学、流体力学、热力学等</p>
+<h3 id="优化类赛题"><a href="#优化类赛题" class="headerlink" title="优化类赛题"></a><strong>优化类赛题</strong></h3><p>优化类问题时数学建模中最为常见的赛题，所谓的优化指在现有条件固定的情况下，如何使目标效果达到最佳；如在一座城市公交车公司拥有的公交车数量是固定的，问如何安排线路能够使盈利达到最高；优化类问题往往需要分析三个关键因素：目标函数、决策变量和约束条件，三者往往缺一不可。不管是国赛还是美赛，对于优化类赛题每年都会出，如：2019年国赛C题：机场的出租车问题；2020国赛C题：中小微企业的信贷决策；2020年美赛E题：淹死在塑料的海洋中等等</p>
+<p>分析：优化类问题是当前美赛最常见的赛题，解决优化类赛题必须知道优化的目的、约束的条件和所求解的关键变量，需要有较强的编程能力和赛题分析挖掘能力！</p>
+<h2 id="数学建模算法体系分类"><a href="#数学建模算法体系分类" class="headerlink" title="数学建模算法体系分类"></a><strong>数学建模算法体系分类</strong></h2><h3 id="数据预处理模型及应用场景"><a href="#数据预处理模型及应用场景" class="headerlink" title="数据预处理模型及应用场景"></a><strong>数据预处理模型及应用场景</strong></h3><p>①插值拟合</p>
+<p>主要用于对数据的补全处理；</p>
+<p>其中样本点较少时（泛指样本点小于30个）采用插值方法，主要有拉格朗日插值算法、牛顿插值、双线性内插和双三次插值</p>
+<p>当样本点较多时（泛指样本点大于30个）则采用拟合函数</p>
+<p>②小波分析，聚类分析（高斯混合聚类，K-均值聚类等等）</p>
+<p>主要用于分析诊断数据异常值并进行剔除；</p>
+<p>小波分析：适用于时域范围的大样本异常值监测</p>
+<p>聚类分析：适用于空间分布的大样本/小样本异常值监测</p>
+<p>③主成分分析、线性判别分析、局部保留投影等</p>
+<p>主要用于多维数据的降维处理，减少数据冗余等</p>
+<p>④均值、方差分析、协方差分析等统计方法</p>
+<p>主要用于数据的截取或者特征选择等</p>
+<h3 id="优化类模型及应用场景"><a href="#优化类模型及应用场景" class="headerlink" title="优化类模型及应用场景"></a><strong>优化类模型及应用场景</strong></h3><p>优化问题的三要素：</p>
+<p>（1) 决策变量</p>
+<p>通过变量的改变，获得更好的结果。 </p>
+<p>它可以理解为控制变量，或者是一些决定性的参数。</p>
+<p>（2）目标函数</p>
+<p>所求：评价是否向着好的方向发展，用来评测的标准</p>
+<p>（3）约束</p>
+<p>它限定了决策变量的具体的设置范围一个定义域限定。</p>
+<p>① 单目标优化：所评测目标只有一个，只需要根据具体的满足函数条件，求得最值</p>
+<p>适用场景：针对问题所建立的优化目标函数有且仅有一个。</p>
+<p>② 多目标优化：多个评测函数的存在，而且使用不同的评测函数的解，也是不同的。也即是说：多目标优化问题中，同时存在多个最大化或是最小化的目标函数，并且，这些目标函数并不是相互独立的，也不是相互和谐融洽的，他们之间会存在或多或少的冲突，使得不能同时满足所有的目标函数。</p>
+<p>适用场景：基于问题所构建的优化目标函数不唯一，常出现在金融投资领域，往往要求风险更小，收益更大；</p>
+<p><em>资料来源：科研交流</em></p>
+
     </div>
 
     
@@ -298,7 +335,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">116k</span>
+    <span title="Symbols count total">118k</span>
   </span>
 </div>
 <div class="busuanzi-count">
