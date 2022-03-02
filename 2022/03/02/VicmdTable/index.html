@@ -20,29 +20,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blore-lzn.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="迁移测试">
+<meta name="description" content="Vi部分指令表文本修改命令    文本修改命令 说明     i&#x2F;I i 命令将文本插入到光标所在位置前；I 命令将文本插入当前行的行首   a&#x2F;A a 命令将新文本追加到光标当前所在位置之后；A 命令将新文本追加到所在行的行尾   o&#x2F;O o 命令将在光标所在行的下面插入一个空行，并将光标置于该行的行首；O 命令在光标所在行的上面插入一个空行，并将光标置于该行的行首     文本删除命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="https://blore-lzn.github.io/2022/03/02/test-1/index.html">
+<meta property="og:title" content="Blore&#39;s Home">
+<meta property="og:url" content="https://blore-lzn.github.io/2022/03/02/VicmdTable/index.html">
 <meta property="og:site_name" content="Blore&#39;s Home">
-<meta property="og:description" content="迁移测试">
+<meta property="og:description" content="Vi部分指令表文本修改命令    文本修改命令 说明     i&#x2F;I i 命令将文本插入到光标所在位置前；I 命令将文本插入当前行的行首   a&#x2F;A a 命令将新文本追加到光标当前所在位置之后；A 命令将新文本追加到所在行的行尾   o&#x2F;O o 命令将在光标所在行的下面插入一个空行，并将光标置于该行的行首；O 命令在光标所在行的上面插入一个空行，并将光标置于该行的行首     文本删除命令">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blore-lzn.github.io/images/Blore.jpg">
-<meta property="article:published_time" content="2022-03-02T14:00:38.000Z">
-<meta property="article:modified_time" content="2022-03-02T14:03:17.528Z">
+<meta property="article:published_time" content="2022-03-02T14:37:57.404Z">
+<meta property="article:modified_time" content="2022-03-02T14:38:47.071Z">
 <meta property="article:author" content="Blore">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blore-lzn.github.io/images/Blore.jpg">
 
 
-<link rel="canonical" href="https://blore-lzn.github.io/2022/03/02/test-1/">
+<link rel="canonical" href="https://blore-lzn.github.io/2022/03/02/VicmdTable/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blore-lzn.github.io/2022/03/02/test-1/","path":"2022/03/02/test-1/","title":"test"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blore-lzn.github.io/2022/03/02/VicmdTable/","path":"2022/03/02/VicmdTable/","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>test | Blore's Home</title>
+<title> | Blore's Home</title>
   
 
 
@@ -121,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%81%E7%A7%BB%E6%B5%8B%E8%AF%95"><span class="nav-text">迁移测试</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vi%E9%83%A8%E5%88%86%E6%8C%87%E4%BB%A4%E8%A1%A8"><span class="nav-text">Vi部分指令表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E4%BF%AE%E6%94%B9%E5%91%BD%E4%BB%A4"><span class="nav-text">文本修改命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%88%A0%E9%99%A4%E5%91%BD%E4%BB%A4"><span class="nav-text">文本删除命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6%E5%91%BD%E4%BB%A4"><span class="nav-text">文本复制命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E7%B2%98%E8%B4%B4%E5%91%BD%E4%BB%A4"><span class="nav-text">文本粘贴命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E9%80%89%E6%8B%A9%E5%91%BD%E4%BB%A4"><span class="nav-text">文本选择命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vi%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4"><span class="nav-text">vi撤销命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vi%E9%87%8D%E5%A4%8D%E5%91%BD%E4%BB%A4"><span class="nav-text">vi重复命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vi%E9%80%80%E5%87%BA%E5%91%BD%E4%BB%A4"><span class="nav-text">vi退出命令</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -199,7 +197,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://blore-lzn.github.io/2022/03/02/test-1/">
+    <link itemprop="mainEntityOfPage" href="https://blore-lzn.github.io/2022/03/02/VicmdTable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/Blore.jpg">
@@ -212,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          test
+          
         </h1>
 
         <div class="post-meta-container">
@@ -224,7 +222,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-03-02 22:00:38 / Modified: 22:03:17" itemprop="dateCreated datePublished" datetime="2022-03-02T22:00:38+08:00">2022-03-02</time>
+      <time title="Created: 2022-03-02 22:37:57 / Modified: 22:38:47" itemprop="dateCreated datePublished" datetime="2022-03-02T22:37:57+08:00">2022-03-02</time>
     </span>
 
   
@@ -242,7 +240,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>4</span>
+      <span>863</span>
     </span>
 </div>
 
@@ -253,7 +251,230 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="迁移测试"><a href="#迁移测试" class="headerlink" title="迁移测试"></a>迁移测试</h1><p><img src="/images/Blore.jpg" alt=""></p>
+        <h1 id="Vi部分指令表"><a href="#Vi部分指令表" class="headerlink" title="Vi部分指令表"></a>Vi部分指令表</h1><h2 id="文本修改命令"><a href="#文本修改命令" class="headerlink" title="文本修改命令"></a>文本修改命令</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>文本修改命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i/I</td>
+<td>i 命令将文本插入到光标所在位置前；I 命令将文本插入当前行的行首</td>
+</tr>
+<tr>
+<td>a/A</td>
+<td>a 命令将新文本追加到光标当前所在位置之后；A 命令将新文本追加到所在行的行尾</td>
+</tr>
+<tr>
+<td>o/O</td>
+<td>o 命令将在光标所在行的下面插入一个空行，并将光标置于该行的行首；O 命令在光标所在行的上面插入一个空行，并将光标置于该行的行首</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="文本删除命令"><a href="#文本删除命令" class="headerlink" title="文本删除命令"></a>文本删除命令</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>文本删除命令</th>
+<th>说明</th>
+<th>文本删除命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>删除光标处的字符</td>
+<td>d(</td>
+<td>删除到上一句开始的所有字符</td>
+</tr>
+<tr>
+<td>X</td>
+<td>删除光标前面的字符</td>
+<td>d)</td>
+<td>删除到下一句开始的所有字符</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>删除光标所在的整行</td>
+<td>d{</td>
+<td>删除到上一段开始的所有字符</td>
+</tr>
+<tr>
+<td>D 或 d$</td>
+<td>删除从光标所在处开始到行尾 的内容</td>
+<td>d}</td>
+<td>删除到下一段开始的所有字符</td>
+</tr>
+<tr>
+<td>d0</td>
+<td>删除从光标前一个字符开始到 行首的内容</td>
+<td>d\<CR\></td>
+<td>删除包括当前行在内的两行字符</td>
+</tr>
+<tr>
+<td>dw</td>
+<td>删除一个单词</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="文本复制命令"><a href="#文本复制命令" class="headerlink" title="文本复制命令"></a>文本复制命令</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>文本复制命令</th>
+<th>说明</th>
+<th>文本复制命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yy</td>
+<td>复制光标所在的整行</td>
+<td>y{</td>
+<td>复制到上一段的开始</td>
+</tr>
+<tr>
+<td>Y 或 y$</td>
+<td>复制从光标所在处开始到行尾的内容</td>
+<td>y}</td>
+<td>复制到下一段的开始</td>
+</tr>
+<tr>
+<td>y0</td>
+<td>复制从光标前一个字符开始到行首的内容</td>
+<td>y\<CR\></td>
+<td>复制包括当前行在内的两行内容</td>
+</tr>
+<tr>
+<td>y(</td>
+<td>复制到上一句的开始</td>
+<td>yw</td>
+<td>复制一个单词</td>
+</tr>
+<tr>
+<td>y)</td>
+<td>复制到下一句的开始</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="文本粘贴命令"><a href="#文本粘贴命令" class="headerlink" title="文本粘贴命令"></a>文本粘贴命令</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>文本粘贴命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p</td>
+<td>粘贴命令，粘贴当前缓冲区中的内容</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="文本选择命令"><a href="#文本选择命令" class="headerlink" title="文本选择命令"></a>文本选择命令</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>文本选择命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>在命令模式下进行文本选择</td>
+</tr>
+<tr>
+<td>V</td>
+<td>在命令模式下按行进行文本选择</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="vi撤销命令"><a href="#vi撤销命令" class="headerlink" title="vi撤销命令"></a>vi撤销命令</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>vi撤销命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u</td>
+<td>该命令撤销上一次所做的操作。</td>
+</tr>
+<tr>
+<td>U</td>
+<td>该命令会一次性撤销自上次移动到当前行以来做过的所有操作，再使用一次 U 命令则撤销之前的 U 命令所做的操作，恢复被撤销的内容。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="vi重复命令"><a href="#vi重复命令" class="headerlink" title="vi重复命令"></a>vi重复命令</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>vi重复命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>重复上次操作</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="vi退出命令"><a href="#vi退出命令" class="headerlink" title="vi退出命令"></a>vi退出命令</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>vi退出命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:q</td>
+<td>如果退出时当前编辑文件尚未保存，则 vi 并不退出</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>该命令不论文件是否改变都会强行退出 vi 编辑器</td>
+</tr>
+<tr>
+<td>:w  （新文件名）</td>
+<td>保存当前编辑文件，但并不退出（可另存为新文件名）</td>
+</tr>
+<tr>
+<td>:w!  新文件名</td>
+<td>即使指定的新文件存在，vi 编辑器也会用当前编辑文件对其进行替换</td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>vi 将先保存文件，然后退出 vi 返回到 shell</td>
+</tr>
+<tr>
+<td>:x</td>
+<td>若当前编辑文件曾被修改过，则 vi 会保存该文件。否则 vi 直接退出，不保存该文件。</td>
+</tr>
+</tbody>
+</table>
+</div>
 
     </div>
 
@@ -304,7 +525,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">118k</span>
+    <span title="Symbols count total">119k</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -354,7 +575,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Blore-lzn","repo":"blore-lzn.github.io","client_id":"f90fbb660b34594a2600","client_secret":"a879303fb0b8d2a2cb17e47f2ed90f9629085c1d","admin_user":"Blore-lzn","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"865cdbf2dc2cba0ff7bab56cbdbe022d"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Blore-lzn","repo":"blore-lzn.github.io","client_id":"f90fbb660b34594a2600","client_secret":"a879303fb0b8d2a2cb17e47f2ed90f9629085c1d","admin_user":"Blore-lzn","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"61ab63f280db554233903d3225deba69"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
