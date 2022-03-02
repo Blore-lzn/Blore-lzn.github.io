@@ -204,7 +204,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/02/VicmdTable/" class="post-title-link" itemprop="url">Untitled</a>
+          <a href="/2022/03/02/VicmdTable/" class="post-title-link" itemprop="url">前言</a>
         </h2>
 
         <div class="post-meta-container">
@@ -216,7 +216,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-03-02 22:37:57 / Modified: 22:38:47" itemprop="dateCreated datePublished" datetime="2022-03-02T22:37:57+08:00">2022-03-02</time>
+      <time title="Created: 2022-03-02 22:12:44 / Modified: 23:28:11" itemprop="dateCreated datePublished" datetime="2022-03-02T22:12:44+08:00">2022-03-02</time>
     </span>
 
   
@@ -238,231 +238,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Vi部分指令表"><a href="#Vi部分指令表" class="headerlink" title="Vi部分指令表"></a>Vi部分指令表</h1><h2 id="文本修改命令"><a href="#文本修改命令" class="headerlink" title="文本修改命令"></a>文本修改命令</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>文本修改命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>i/I</td>
-<td>i 命令将文本插入到光标所在位置前；I 命令将文本插入当前行的行首</td>
-</tr>
-<tr>
-<td>a/A</td>
-<td>a 命令将新文本追加到光标当前所在位置之后；A 命令将新文本追加到所在行的行尾</td>
-</tr>
-<tr>
-<td>o/O</td>
-<td>o 命令将在光标所在行的下面插入一个空行，并将光标置于该行的行首；O 命令在光标所在行的上面插入一个空行，并将光标置于该行的行首</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="文本删除命令"><a href="#文本删除命令" class="headerlink" title="文本删除命令"></a>文本删除命令</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>文本删除命令</th>
-<th>说明</th>
-<th>文本删除命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x</td>
-<td>删除光标处的字符</td>
-<td>d(</td>
-<td>删除到上一句开始的所有字符</td>
-</tr>
-<tr>
-<td>X</td>
-<td>删除光标前面的字符</td>
-<td>d)</td>
-<td>删除到下一句开始的所有字符</td>
-</tr>
-<tr>
-<td>dd</td>
-<td>删除光标所在的整行</td>
-<td>d{</td>
-<td>删除到上一段开始的所有字符</td>
-</tr>
-<tr>
-<td>D 或 d$</td>
-<td>删除从光标所在处开始到行尾 的内容</td>
-<td>d}</td>
-<td>删除到下一段开始的所有字符</td>
-</tr>
-<tr>
-<td>d0</td>
-<td>删除从光标前一个字符开始到 行首的内容</td>
-<td>d\<CR\></td>
-<td>删除包括当前行在内的两行字符</td>
-</tr>
-<tr>
-<td>dw</td>
-<td>删除一个单词</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="文本复制命令"><a href="#文本复制命令" class="headerlink" title="文本复制命令"></a>文本复制命令</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>文本复制命令</th>
-<th>说明</th>
-<th>文本复制命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>yy</td>
-<td>复制光标所在的整行</td>
-<td>y{</td>
-<td>复制到上一段的开始</td>
-</tr>
-<tr>
-<td>Y 或 y$</td>
-<td>复制从光标所在处开始到行尾的内容</td>
-<td>y}</td>
-<td>复制到下一段的开始</td>
-</tr>
-<tr>
-<td>y0</td>
-<td>复制从光标前一个字符开始到行首的内容</td>
-<td>y\<CR\></td>
-<td>复制包括当前行在内的两行内容</td>
-</tr>
-<tr>
-<td>y(</td>
-<td>复制到上一句的开始</td>
-<td>yw</td>
-<td>复制一个单词</td>
-</tr>
-<tr>
-<td>y)</td>
-<td>复制到下一句的开始</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="文本粘贴命令"><a href="#文本粘贴命令" class="headerlink" title="文本粘贴命令"></a>文本粘贴命令</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>文本粘贴命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>p</td>
-<td>粘贴命令，粘贴当前缓冲区中的内容</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="文本选择命令"><a href="#文本选择命令" class="headerlink" title="文本选择命令"></a>文本选择命令</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>文本选择命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>v</td>
-<td>在命令模式下进行文本选择</td>
-</tr>
-<tr>
-<td>V</td>
-<td>在命令模式下按行进行文本选择</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="vi撤销命令"><a href="#vi撤销命令" class="headerlink" title="vi撤销命令"></a>vi撤销命令</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>vi撤销命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>u</td>
-<td>该命令撤销上一次所做的操作。</td>
-</tr>
-<tr>
-<td>U</td>
-<td>该命令会一次性撤销自上次移动到当前行以来做过的所有操作，再使用一次 U 命令则撤销之前的 U 命令所做的操作，恢复被撤销的内容。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="vi重复命令"><a href="#vi重复命令" class="headerlink" title="vi重复命令"></a>vi重复命令</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>vi重复命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.</td>
-<td>重复上次操作</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="vi退出命令"><a href="#vi退出命令" class="headerlink" title="vi退出命令"></a>vi退出命令</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>vi退出命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:q</td>
-<td>如果退出时当前编辑文件尚未保存，则 vi 并不退出</td>
-</tr>
-<tr>
-<td>:q!</td>
-<td>该命令不论文件是否改变都会强行退出 vi 编辑器</td>
-</tr>
-<tr>
-<td>:w  （新文件名）</td>
-<td>保存当前编辑文件，但并不退出（可另存为新文件名）</td>
-</tr>
-<tr>
-<td>:w!  新文件名</td>
-<td>即使指定的新文件存在，vi 编辑器也会用当前编辑文件对其进行替换</td>
-</tr>
-<tr>
-<td>:wq</td>
-<td>vi 将先保存文件，然后退出 vi 返回到 shell</td>
-</tr>
-<tr>
-<td>:x</td>
-<td>若当前编辑文件曾被修改过，则 vi 会保存该文件。否则 vi 直接退出，不保存该文件。</td>
-</tr>
-</tbody>
-</table>
-</div>
-
+          <h1 id="Vi部分指令表"><a href="#Vi部分指令表" class="headerlink" title="Vi部分指令表"></a>Vi部分指令表</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/02/VicmdTable/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -511,10 +295,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-09-06 19:27:57 / Modified: 21:02:49" itemprop="dateCreated datePublished" datetime="2021-09-06T19:27:57+08:00">2021-09-06</time>
+      <time title="Created: 2021-09-06 19:27:57" itemprop="dateCreated datePublished" datetime="2021-09-06T19:27:57+08:00">2021-09-06</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-03-02 23:27:30" itemprop="dateModified" datetime="2022-03-02T23:27:30+08:00">2022-03-02</time>
+      </span>
 
   
       </div>
@@ -535,42 +325,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-<h2 id="数学建模常见的赛题类型"><a href="#数学建模常见的赛题类型" class="headerlink" title="数学建模常见的赛题类型"></a><strong>数学建模常见的赛题类型</strong></h2><h3 id="预测类赛题"><a href="#预测类赛题" class="headerlink" title="预测类赛题"></a><strong>预测类赛题</strong></h3><p>所谓的预测类问题，指的是通过分析已有数据或现象，找出其内在发展规律，然后对未来情形做出预测的过程。</p>
-<p>根据已知条件和求解目的，往往将预测类问题分为：小样本内部预测，大样本内部预测，小样本未来预测，大样本随机因素或周期特征的未来预测，大样本的未来预测</p>
-<p>分析：预测问题主要是以某个小问的形式出现，很少有整个赛题所有小问全是预测要求的，但也建议大家认真对待</p>
-<h3 id="评价类赛题"><a href="#评价类赛题" class="headerlink" title="评价类赛题"></a><strong>评价类赛题</strong></h3><p>所谓的评价类问题，指的是按照一定的标准对事物的发展或现状进行划分的过程，在数学建模中出题点可体现在对生态环境、社会建设、方案策略等进行评价。评价类赛题往往没有明确的指标体系和评价标准，往往是需要同学们查阅各类资料进行构建的，因此评价类赛题也没有明确的答案。</p>
-<p>分析：评价类问题近些年在美赛赛题中频繁出现，解决评价类赛题的关键是指标体系的构建，构建完评价体系后在选择合适的评价方法即可，体系建立应秉持全面、准确、独立的三要素</p>
-<h3 id="机理分析类赛题"><a href="#机理分析类赛题" class="headerlink" title="机理分析类赛题"></a><strong>机理分析类赛题</strong></h3><p>机理分析是根据对现实对象特性的认识，分析其因果关系，找出反映内部机理的规律。在求解机理分析类问题时首先需要探寻与问题相关的物理、化学、经济等相关的知识，然后通过对已知数据或现象的分析对事物的内在规律做出必要的假设，最后通过构建合适的方程或关系式对其内在规律进行数值表达。机理分析在国赛美赛中的出题点较多，如2014年国赛A题：嫦娥三号软着陆轨道设计与控制策略、2016国赛B题小区开放对道路通行的影响、2013美赛MCM(A):车辆右行问题</p>
-<p>分析：机理分析立足于建立事物内部的规律，相对于其他类型的赛题均有章可循，机理分析类赛题往往需要结合众多关联知识才可以进行求解，如空气动力学、流体力学、热力学等</p>
-<h3 id="优化类赛题"><a href="#优化类赛题" class="headerlink" title="优化类赛题"></a><strong>优化类赛题</strong></h3><p>优化类问题时数学建模中最为常见的赛题，所谓的优化指在现有条件固定的情况下，如何使目标效果达到最佳；如在一座城市公交车公司拥有的公交车数量是固定的，问如何安排线路能够使盈利达到最高；优化类问题往往需要分析三个关键因素：目标函数、决策变量和约束条件，三者往往缺一不可。不管是国赛还是美赛，对于优化类赛题每年都会出，如：2019年国赛C题：机场的出租车问题；2020国赛C题：中小微企业的信贷决策；2020年美赛E题：淹死在塑料的海洋中等等</p>
-<p>分析：优化类问题是当前美赛最常见的赛题，解决优化类赛题必须知道优化的目的、约束的条件和所求解的关键变量，需要有较强的编程能力和赛题分析挖掘能力！</p>
-<h2 id="数学建模算法体系分类"><a href="#数学建模算法体系分类" class="headerlink" title="数学建模算法体系分类"></a><strong>数学建模算法体系分类</strong></h2><h3 id="数据预处理模型及应用场景"><a href="#数据预处理模型及应用场景" class="headerlink" title="数据预处理模型及应用场景"></a><strong>数据预处理模型及应用场景</strong></h3><p>①插值拟合</p>
-<p>主要用于对数据的补全处理；</p>
-<p>其中样本点较少时（泛指样本点小于30个）采用插值方法，主要有拉格朗日插值算法、牛顿插值、双线性内插和双三次插值</p>
-<p>当样本点较多时（泛指样本点大于30个）则采用拟合函数</p>
-<p>②小波分析，聚类分析（高斯混合聚类，K-均值聚类等等）</p>
-<p>主要用于分析诊断数据异常值并进行剔除；</p>
-<p>小波分析：适用于时域范围的大样本异常值监测</p>
-<p>聚类分析：适用于空间分布的大样本/小样本异常值监测</p>
-<p>③主成分分析、线性判别分析、局部保留投影等</p>
-<p>主要用于多维数据的降维处理，减少数据冗余等</p>
-<p>④均值、方差分析、协方差分析等统计方法</p>
-<p>主要用于数据的截取或者特征选择等</p>
-<h3 id="优化类模型及应用场景"><a href="#优化类模型及应用场景" class="headerlink" title="优化类模型及应用场景"></a><strong>优化类模型及应用场景</strong></h3><p>优化问题的三要素：</p>
-<p>（1) 决策变量</p>
-<p>通过变量的改变，获得更好的结果。 </p>
-<p>它可以理解为控制变量，或者是一些决定性的参数。</p>
-<p>（2）目标函数</p>
-<p>所求：评价是否向着好的方向发展，用来评测的标准</p>
-<p>（3）约束</p>
-<p>它限定了决策变量的具体的设置范围一个定义域限定。</p>
-<p>① 单目标优化：所评测目标只有一个，只需要根据具体的满足函数条件，求得最值</p>
-<p>适用场景：针对问题所建立的优化目标函数有且仅有一个。</p>
-<p>② 多目标优化：多个评测函数的存在，而且使用不同的评测函数的解，也是不同的。也即是说：多目标优化问题中，同时存在多个最大化或是最小化的目标函数，并且，这些目标函数并不是相互独立的，也不是相互和谐融洽的，他们之间会存在或多或少的冲突，使得不能同时满足所有的目标函数。</p>
-<p>适用场景：基于问题所构建的优化目标函数不唯一，常出现在金融投资领域，往往要求风险更小，收益更大；</p>
-<p><em>资料来源：科研交流</em></p>
-
+          <p>、</p>
+<h2 id="数学建模常见的赛题类型"><a href="#数学建模常见的赛题类型" class="headerlink" title="数学建模常见的赛题类型"></a><strong>数学建模常见的赛题类型</strong></h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/06/ModelSummary/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
