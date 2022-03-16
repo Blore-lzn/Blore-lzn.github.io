@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/tuan.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tuan.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tuan.png">
+  <link rel="mask-icon" href="/images/tuan.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blore-lzn.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="读书笔记：《重构 改善既有代码的设计》第1章 重构，第一个案例第2章 重构原则2.3 何时重构三次法则：添加功能时重构、修补错误时重构、复审代码时重构 第3章 代码的坏味道3.1 Duplicated Code（重复代码）3.2 Long Method（过长函数）3.3 Large Class （过大的类）3.4 Long Parameter List （过长参数列）3.5 Divergent C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Blore&#39;s Home">
+<meta property="og:url" content="https://blore-lzn.github.io/2022/03/07/JavaRefractor/index.html">
+<meta property="og:site_name" content="Blore&#39;s Home">
+<meta property="og:description" content="读书笔记：《重构 改善既有代码的设计》第1章 重构，第一个案例第2章 重构原则2.3 何时重构三次法则：添加功能时重构、修补错误时重构、复审代码时重构 第3章 代码的坏味道3.1 Duplicated Code（重复代码）3.2 Long Method（过长函数）3.3 Large Class （过大的类）3.4 Long Parameter List （过长参数列）3.5 Divergent C">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-07T15:23:52.534Z">
+<meta property="article:modified_time" content="2022-03-16T03:19:22.965Z">
+<meta property="article:author" content="Blore">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blore-lzn.github.io/2022/03/07/JavaRefractor/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blore-lzn.github.io/2022/03/07/JavaRefractor/","path":"2022/03/07/JavaRefractor/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Blore's Home</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Blore's Home</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">article</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">9</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">4</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">20</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E3%80%8A%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1%E3%80%8B"><span class="nav-text">读书笔记：《重构 改善既有代码的设计》</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E9%87%8D%E6%9E%84%EF%BC%8C%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%A1%88%E4%BE%8B"><span class="nav-text">第1章 重构，第一个案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E9%87%8D%E6%9E%84%E5%8E%9F%E5%88%99"><span class="nav-text">第2章 重构原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%BD%95%E6%97%B6%E9%87%8D%E6%9E%84"><span class="nav-text">2.3 何时重构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-%E4%BB%A3%E7%A0%81%E7%9A%84%E5%9D%8F%E5%91%B3%E9%81%93"><span class="nav-text">第3章 代码的坏味道</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-Duplicated-Code%EF%BC%88%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%EF%BC%89"><span class="nav-text">3.1 Duplicated Code（重复代码）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-Long-Method%EF%BC%88%E8%BF%87%E9%95%BF%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-text">3.2 Long Method（过长函数）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-Large-Class-%EF%BC%88%E8%BF%87%E5%A4%A7%E7%9A%84%E7%B1%BB%EF%BC%89"><span class="nav-text">3.3 Large Class （过大的类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-Long-Parameter-List-%EF%BC%88%E8%BF%87%E9%95%BF%E5%8F%82%E6%95%B0%E5%88%97%EF%BC%89"><span class="nav-text">3.4 Long Parameter List （过长参数列）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-Divergent-Change-%EF%BC%88%E5%8F%91%E6%95%A3%E5%BC%8F%E5%8F%98%E5%8C%96%EF%BC%89"><span class="nav-text">3.5 Divergent Change （发散式变化）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-Shotgun-Surgery-%EF%BC%88%E9%9C%B0%E5%BC%B9%E5%BC%8F%E4%BF%AE%E6%94%B9%EF%BC%89"><span class="nav-text">3.6 Shotgun Surgery （霰弹式修改）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-Feature-Envy-%EF%BC%88%E4%BE%9D%E6%81%8B%E6%83%85%E7%BB%93%EF%BC%89"><span class="nav-text">3.7 Feature Envy （依恋情结）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-Data-Clumps-%EF%BC%88%E6%95%B0%E6%8D%AE%E6%B3%A5%E5%9B%A2%EF%BC%89"><span class="nav-text">3.8 Data Clumps （数据泥团）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-9-Primitive-Obession-%EF%BC%88%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%81%8F%E6%89%A7%EF%BC%89"><span class="nav-text">3.9 Primitive Obession （基本类型偏执）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-10-Switch-Statements-%EF%BC%88switch-%E6%83%8A%E6%82%9A%E7%8E%B0%E8%BA%AB%EF%BC%89"><span class="nav-text">3.10 Switch Statements （switch 惊悚现身）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-11-Paralle-Inheritance-Hierarchies-%EF%BC%88%E5%B9%B3%E8%A1%8C%E7%BB%A7%E6%89%BF%E4%BD%93%E7%B3%BB%EF%BC%89"><span class="nav-text">3.11 Paralle Inheritance Hierarchies （平行继承体系）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-12-Lazy-Class-%EF%BC%88%E5%86%97%E8%B5%98%E7%B1%BB%EF%BC%89"><span class="nav-text">3.12 Lazy Class （冗赘类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-13-Speculative-Generality-%EF%BC%88%E5%A4%B8%E5%A4%B8%E5%85%B6%E8%B0%88%E6%9C%AA%E6%9D%A5%E6%80%A7%EF%BC%89"><span class="nav-text">3.13 Speculative Generality （夸夸其谈未来性）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-14-Temporary-Field-%EF%BC%88%E4%BB%A4%E4%BA%BA%E8%BF%B7%E6%83%91%E7%9A%84%E6%9A%82%E6%97%B6%E5%AD%97%E6%AE%B5%EF%BC%89"><span class="nav-text">3.14 Temporary Field （令人迷惑的暂时字段）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-15-Message-Chains-%EF%BC%88%E8%BF%87%E5%BA%A6%E8%80%A6%E5%90%88%E7%9A%84%E6%B6%88%E6%81%AF%E9%93%BE%EF%BC%89"><span class="nav-text">3.15 Message Chains （过度耦合的消息链）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-16-Middle-Man-%EF%BC%88%E4%B8%AD%E9%97%B4%E4%BA%BA%EF%BC%89"><span class="nav-text">3.16 Middle Man （中间人）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-17-Inappropriate-%EF%BC%88%E7%8B%8E%E6%98%B5%E5%85%B3%E7%B3%BB%EF%BC%89"><span class="nav-text">3.17 Inappropriate （狎昵关系）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-18-Alternative-Classes-with-Different-Interfaces-%EF%BC%88%E5%BC%82%E6%9B%B2%E5%90%8C%E5%B7%A5%E7%9A%84%E7%B1%BB%EF%BC%89"><span class="nav-text">3.18 Alternative Classes with Different Interfaces （异曲同工的类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-19-Incomplete-Library-Class-%EF%BC%88%E4%B8%8D%E5%AE%8C%E7%BE%8E%E7%9A%84%E5%BA%93%E7%B1%BB%EF%BC%89"><span class="nav-text">3.19 Incomplete Library Class （不完美的库类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-20-Data-Class-%EF%BC%88%E7%BA%AF%E7%B2%B9%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%EF%BC%89"><span class="nav-text">3.20 Data Class （纯粹的数据类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-21-Refused-Bequest-%EF%BC%88%E8%A2%AB%E6%8B%92%E7%BB%9D%E7%9A%84%E9%A6%88%E8%B5%A0%EF%BC%89"><span class="nav-text">3.21 Refused Bequest （被拒绝的馈赠）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-22-Comments-%EF%BC%88%E8%BF%87%E5%A4%9A%E7%9A%84%E6%B3%A8%E9%87%8A%EF%BC%89"><span class="nav-text">3.22 Comments （过多的注释）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-%E6%9E%84%E5%BB%BA%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB"><span class="nav-text">第4章 构建测试体系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC5%E7%AB%A0-%E9%87%8D%E6%9E%84%E5%88%97%E8%A1%A8"><span class="nav-text">第5章 重构列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC6%E7%AB%A0-%E9%87%8D%E6%96%B0%E7%BB%84%E7%BB%87%E5%87%BD%E6%95%B0"><span class="nav-text">第6章 重新组织函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-Extract-Method-%EF%BC%88%E6%8F%90%E7%82%BC%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-text">6.1 Extract Method （提炼函数）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-Inline-Method-%EF%BC%88%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-text">6.2 Inline Method （内联函数）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-Inline-Temp-%EF%BC%88%E5%86%85%E8%81%94%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F%EF%BC%89"><span class="nav-text">6.3 Inline Temp （内联临时变量）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-Replace-Temp-with-Quert-%EF%BC%88%E4%BB%A5%E6%9F%A5%E8%AF%A2%E5%8F%96%E4%BB%A3%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F%EF%BC%89"><span class="nav-text">6.4 Replace Temp with Quert （以查询取代临时变量）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-Introduce-Explaining-Variable-%EF%BC%88%E5%BC%95%E5%85%A5%E8%A7%A3%E9%87%8A%E6%80%A7%E5%8F%98%E9%87%8F%EF%BC%89"><span class="nav-text">6.5 Introduce Explaining Variable （引入解释性变量）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-6-Split-Temporary-Variable-%EF%BC%88%E5%88%86%E8%A7%A3%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F%EF%BC%89"><span class="nav-text">6.6 Split Temporary Variable （分解临时变量）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-Remove-Assignments-to-Parameters-%EF%BC%88%E7%A7%BB%E9%99%A4%E5%AF%B9%E5%8F%82%E6%95%B0%E7%9A%84%E8%B5%8B%E5%80%BC%EF%BC%89"><span class="nav-text">6.7 Remove Assignments to Parameters （移除对参数的赋值）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-8-Replace-Method-with-Method-Object-%EF%BC%88%E4%BB%A5%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E5%8F%96%E4%BB%A3%E5%87%BD%E6%95%B0%EF%BC%89"><span class="nav-text">6.8 Replace Method with Method Object （以函数对象取代函数）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-9-Substitude-Algorithm-%EF%BC%88%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%95%EF%BC%89"><span class="nav-text">6.9 Substitude Algorithm （替换算法）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC7%E7%AB%A0-%E5%9C%A8%E5%AF%B9%E8%B1%A1%E4%B9%8B%E9%97%B4%E6%90%AC%E7%A7%BB%E7%89%B9%E6%80%A7"><span class="nav-text">第7章 在对象之间搬移特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-Move-Method-%E6%90%AC%E7%A7%BB%E5%87%BD%E6%95%B0"><span class="nav-text">7.1 Move Method (搬移函数)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-Move-Field-%E6%90%AC%E7%A7%BB%E5%AD%97%E6%AE%B5"><span class="nav-text">7.2 Move Field ( 搬移字段 )</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-Extract-Class-%E6%8F%90%E7%82%BC%E7%B1%BB%EF%BC%89"><span class="nav-text">7.3 Extract Class (提炼类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-Inline-Class-%E5%B0%86%E7%B1%BB%E5%86%85%E8%81%94%E5%8C%96"><span class="nav-text">7.4 Inline Class (将类内联化)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-5-Hide-Delegate-%E9%9A%90%E8%97%8F%E2%80%9C%E5%A7%94%E6%89%98%E5%85%B3%E7%B3%BB%E2%80%9D%EF%BC%89"><span class="nav-text">7.5 Hide Delegate (隐藏“委托关系”）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-Remove-Middle-Man-%E7%A7%BB%E9%99%A4%E4%B8%AD%E9%97%B4%E4%BA%BA"><span class="nav-text">7.6 Remove Middle Man (移除中间人)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-Introduce-Foreign-Method-%E5%BC%95%E5%85%A5%E5%A4%96%E5%8A%A0%E5%87%BD%E6%95%B0"><span class="nav-text">7.7 Introduce Foreign Method (引入外加函数)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-8-Introduce-Local-Extension-%E5%BC%95%E5%85%A5%E6%9C%AC%E5%9C%B0%E6%89%A9%E5%B1%95"><span class="nav-text">7.8 Introduce Local Extension (引入本地扩展)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Blore"
+      src="/images/Blore.jpg">
+  <p class="site-author-name" itemprop="name">Blore</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profiles/blore" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profiles&#x2F;blore" rel="noopener" target="_blank">Codeforces</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1137480882@qq.com" title="E-Mail → mailto:1137480882@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blore-lzn.github.io/2022/03/07/JavaRefractor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Blore.jpg">
+      <meta itemprop="name" content="Blore">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blore's Home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-07 23:23:52" itemprop="dateCreated datePublished" datetime="2022-03-07T23:23:52+08:00">2022-03-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-03-16 11:19:22" itemprop="dateModified" datetime="2022-03-16T11:19:22+08:00">2022-03-16</time>
+      </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.2k</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="读书笔记：《重构-改善既有代码的设计》"><a href="#读书笔记：《重构-改善既有代码的设计》" class="headerlink" title="读书笔记：《重构 改善既有代码的设计》"></a>读书笔记：《重构 改善既有代码的设计》</h1><h2 id="第1章-重构，第一个案例"><a href="#第1章-重构，第一个案例" class="headerlink" title="第1章 重构，第一个案例"></a>第1章 重构，第一个案例</h2><h2 id="第2章-重构原则"><a href="#第2章-重构原则" class="headerlink" title="第2章 重构原则"></a>第2章 重构原则</h2><h3 id="2-3-何时重构"><a href="#2-3-何时重构" class="headerlink" title="2.3 何时重构"></a>2.3 何时重构</h3><p>三次法则：添加功能时重构、修补错误时重构、复审代码时重构</p>
+<h2 id="第3章-代码的坏味道"><a href="#第3章-代码的坏味道" class="headerlink" title="第3章 代码的坏味道"></a>第3章 代码的坏味道</h2><h4 id="3-1-Duplicated-Code（重复代码）"><a href="#3-1-Duplicated-Code（重复代码）" class="headerlink" title="3.1 Duplicated Code（重复代码）"></a>3.1 Duplicated Code（重复代码）</h4><h4 id="3-2-Long-Method（过长函数）"><a href="#3-2-Long-Method（过长函数）" class="headerlink" title="3.2 Long Method（过长函数）"></a>3.2 Long Method（过长函数）</h4><h4 id="3-3-Large-Class-（过大的类）"><a href="#3-3-Large-Class-（过大的类）" class="headerlink" title="3.3 Large Class （过大的类）"></a>3.3 Large Class （过大的类）</h4><h4 id="3-4-Long-Parameter-List-（过长参数列）"><a href="#3-4-Long-Parameter-List-（过长参数列）" class="headerlink" title="3.4 Long Parameter List （过长参数列）"></a>3.4 Long Parameter List （过长参数列）</h4><h4 id="3-5-Divergent-Change-（发散式变化）"><a href="#3-5-Divergent-Change-（发散式变化）" class="headerlink" title="3.5 Divergent Change （发散式变化）"></a>3.5 Divergent Change （发散式变化）</h4><p>一个类受多种变化的影响</p>
+<h4 id="3-6-Shotgun-Surgery-（霰弹式修改）"><a href="#3-6-Shotgun-Surgery-（霰弹式修改）" class="headerlink" title="3.6 Shotgun Surgery （霰弹式修改）"></a>3.6 Shotgun Surgery （霰弹式修改）</h4><p>一种变化引发多个类相应修改</p>
+<h4 id="3-7-Feature-Envy-（依恋情结）"><a href="#3-7-Feature-Envy-（依恋情结）" class="headerlink" title="3.7 Feature Envy （依恋情结）"></a>3.7 Feature Envy （依恋情结）</h4><p>函数对某个类的兴趣高过对自己所处类的兴趣</p>
+<h4 id="3-8-Data-Clumps-（数据泥团）"><a href="#3-8-Data-Clumps-（数据泥团）" class="headerlink" title="3.8 Data Clumps （数据泥团）"></a>3.8 Data Clumps （数据泥团）</h4><p>两个类相同的字段、许多函数签名中相同的参数</p>
+<h4 id="3-9-Primitive-Obession-（基本类型偏执）"><a href="#3-9-Primitive-Obession-（基本类型偏执）" class="headerlink" title="3.9 Primitive Obession （基本类型偏执）"></a>3.9 Primitive Obession （基本类型偏执）</h4><h4 id="3-10-Switch-Statements-（switch-惊悚现身）"><a href="#3-10-Switch-Statements-（switch-惊悚现身）" class="headerlink" title="3.10 Switch Statements （switch 惊悚现身）"></a>3.10 Switch Statements （switch 惊悚现身）</h4><h4 id="3-11-Paralle-Inheritance-Hierarchies-（平行继承体系）"><a href="#3-11-Paralle-Inheritance-Hierarchies-（平行继承体系）" class="headerlink" title="3.11 Paralle Inheritance Hierarchies （平行继承体系）"></a>3.11 Paralle Inheritance Hierarchies （平行继承体系）</h4><p>每当为一个类添加一个子类，必须也为另一个类相应添加一个子类</p>
+<h4 id="3-12-Lazy-Class-（冗赘类）"><a href="#3-12-Lazy-Class-（冗赘类）" class="headerlink" title="3.12 Lazy Class （冗赘类）"></a>3.12 Lazy Class （冗赘类）</h4><h4 id="3-13-Speculative-Generality-（夸夸其谈未来性）"><a href="#3-13-Speculative-Generality-（夸夸其谈未来性）" class="headerlink" title="3.13 Speculative Generality （夸夸其谈未来性）"></a>3.13 Speculative Generality （夸夸其谈未来性）</h4><h4 id="3-14-Temporary-Field-（令人迷惑的暂时字段）"><a href="#3-14-Temporary-Field-（令人迷惑的暂时字段）" class="headerlink" title="3.14 Temporary Field （令人迷惑的暂时字段）"></a>3.14 Temporary Field （令人迷惑的暂时字段）</h4><h4 id="3-15-Message-Chains-（过度耦合的消息链）"><a href="#3-15-Message-Chains-（过度耦合的消息链）" class="headerlink" title="3.15 Message Chains （过度耦合的消息链）"></a>3.15 Message Chains （过度耦合的消息链）</h4><h4 id="3-16-Middle-Man-（中间人）"><a href="#3-16-Middle-Man-（中间人）" class="headerlink" title="3.16 Middle Man （中间人）"></a>3.16 Middle Man （中间人）</h4><h4 id="3-17-Inappropriate-（狎昵关系）"><a href="#3-17-Inappropriate-（狎昵关系）" class="headerlink" title="3.17 Inappropriate （狎昵关系）"></a>3.17 Inappropriate （狎昵关系）</h4><p>两个类过分关注彼此private成分</p>
+<h4 id="3-18-Alternative-Classes-with-Different-Interfaces-（异曲同工的类）"><a href="#3-18-Alternative-Classes-with-Different-Interfaces-（异曲同工的类）" class="headerlink" title="3.18 Alternative Classes with Different Interfaces （异曲同工的类）"></a>3.18 Alternative Classes with Different Interfaces （异曲同工的类）</h4><h4 id="3-19-Incomplete-Library-Class-（不完美的库类）"><a href="#3-19-Incomplete-Library-Class-（不完美的库类）" class="headerlink" title="3.19 Incomplete Library Class （不完美的库类）"></a>3.19 Incomplete Library Class （不完美的库类）</h4><h4 id="3-20-Data-Class-（纯粹的数据类）"><a href="#3-20-Data-Class-（纯粹的数据类）" class="headerlink" title="3.20 Data Class （纯粹的数据类）"></a>3.20 Data Class （纯粹的数据类）</h4><h4 id="3-21-Refused-Bequest-（被拒绝的馈赠）"><a href="#3-21-Refused-Bequest-（被拒绝的馈赠）" class="headerlink" title="3.21 Refused Bequest （被拒绝的馈赠）"></a>3.21 Refused Bequest （被拒绝的馈赠）</h4><p>子类不需要继承超类的函数和数据</p>
+<h4 id="3-22-Comments-（过多的注释）"><a href="#3-22-Comments-（过多的注释）" class="headerlink" title="3.22 Comments （过多的注释）"></a>3.22 Comments （过多的注释）</h4><h2 id="第4章-构建测试体系"><a href="#第4章-构建测试体系" class="headerlink" title="第4章 构建测试体系"></a>第4章 构建测试体系</h2><h2 id="第5章-重构列表"><a href="#第5章-重构列表" class="headerlink" title="第5章 重构列表"></a>第5章 重构列表</h2><h2 id="第6章-重新组织函数"><a href="#第6章-重新组织函数" class="headerlink" title="第6章 重新组织函数"></a>第6章 重新组织函数</h2><h4 id="6-1-Extract-Method-（提炼函数）"><a href="#6-1-Extract-Method-（提炼函数）" class="headerlink" title="6.1 Extract Method （提炼函数）"></a>6.1 Extract Method （提炼函数）</h4><p>你有一段代码可以被组织在一起并独立出来。</p>
+<p><strong>将这段代码放进一个独立函数中，并让函数名称解释该函数的用途。</strong></p>
+<h4 id="6-2-Inline-Method-（内联函数）"><a href="#6-2-Inline-Method-（内联函数）" class="headerlink" title="6.2 Inline Method （内联函数）"></a>6.2 Inline Method （内联函数）</h4><p>一个函数的本体与名称同样清楚易懂。</p>
+<p><strong>在函数调用点插入函数本体, 然后移除该函数。</strong></p>
+<h4 id="6-3-Inline-Temp-（内联临时变量）"><a href="#6-3-Inline-Temp-（内联临时变量）" class="headerlink" title="6.3 Inline Temp （内联临时变量）"></a>6.3 Inline Temp （内联临时变量）</h4><p>你有一个临时变量，只被一个简单表达式赋值一次，而它妨碍了其他重构手法。</p>
+<p><strong>将所有对该变量的引用动作, 替换为对它賦值的那个表达式自身。</strong></p>
+<h4 id="6-4-Replace-Temp-with-Quert-（以查询取代临时变量）"><a href="#6-4-Replace-Temp-with-Quert-（以查询取代临时变量）" class="headerlink" title="6.4 Replace Temp with Quert （以查询取代临时变量）"></a>6.4 Replace Temp with Quert （以查询取代临时变量）</h4><p>局部变量会使代码难以提炼。</p>
+<p><strong>将这个表达式提炼到一个独立函数中。将这个临时变量的所有引用点替换为对新函数的调用。此后，新函数就可被其他函数使用。</strong></p>
+<h4 id="6-5-Introduce-Explaining-Variable-（引入解释性变量）"><a href="#6-5-Introduce-Explaining-Variable-（引入解释性变量）" class="headerlink" title="6.5 Introduce Explaining Variable （引入解释性变量）"></a>6.5 Introduce Explaining Variable （引入解释性变量）</h4><p>你有一个复杂的表达式。</p>
+<p><strong>将这个表达式提炼到一个独立函数中。将这个临时变量的所有引用点替换为对新函数的调用。此后，新函数就可被其他函数使用。</strong></p>
+<h4 id="6-6-Split-Temporary-Variable-（分解临时变量）"><a href="#6-6-Split-Temporary-Variable-（分解临时变量）" class="headerlink" title="6.6 Split Temporary Variable （分解临时变量）"></a>6.6 Split Temporary Variable （分解临时变量）</h4><p>你的程序有某个临时变量被赋值超过一次, 它既不是循环变量,也不被用于收集计算结果。</p>
+<p><strong>针对每次賦值，创造一个独立、对应的临时变置。</strong></p>
+<h4 id="6-7-Remove-Assignments-to-Parameters-（移除对参数的赋值）"><a href="#6-7-Remove-Assignments-to-Parameters-（移除对参数的赋值）" class="headerlink" title="6.7 Remove Assignments to Parameters （移除对参数的赋值）"></a>6.7 Remove Assignments to Parameters （移除对参数的赋值）</h4><p>代码对一个参数进行赋值。</p>
+<p><strong>以一个临时变量取代该参数的位置。</strong></p>
+<h4 id="6-8-Replace-Method-with-Method-Object-（以函数对象取代函数）"><a href="#6-8-Replace-Method-with-Method-Object-（以函数对象取代函数）" class="headerlink" title="6.8 Replace Method with Method Object （以函数对象取代函数）"></a>6.8 Replace Method with Method Object （以函数对象取代函数）</h4><p>你有一个大型函数，其中对局部变量的使用使你无法采用Extract Method（6.1）</p>
+<p><strong>将这个函数放进一个单独对象中，如此一来局部变置就成了对象内的字段。然后你可以在同一个对象中将这个大型函数分解为多个小型函数。</strong></p>
+<h4 id="6-9-Substitude-Algorithm-（替换算法）"><a href="#6-9-Substitude-Algorithm-（替换算法）" class="headerlink" title="6.9 Substitude Algorithm （替换算法）"></a>6.9 Substitude Algorithm （替换算法）</h4><p>你想要把某个算法替换为另一个更清晰的算法。</p>
+<p><strong>将函数本体替换为另一个算法。</strong></p>
+<h2 id="第7章-在对象之间搬移特性"><a href="#第7章-在对象之间搬移特性" class="headerlink" title="第7章 在对象之间搬移特性"></a>第7章 在对象之间搬移特性</h2><h4 id="7-1-Move-Method-搬移函数"><a href="#7-1-Move-Method-搬移函数" class="headerlink" title="7.1 Move Method (搬移函数)"></a>7.1 Move Method (搬移函数)</h4><p>你的程序中，有个函数与其所驻类之外的另一个类进行更多交流，调用后者，或被后者调用。</p>
+<p><strong>在该函数最常引用的类中建立一个有着类似行为的新函数。将旧函数变成一个单纯的委托函数，或是将旧函数完全移除。</strong></p>
+<h4 id="7-2-Move-Field-搬移字段"><a href="#7-2-Move-Field-搬移字段" class="headerlink" title="7.2 Move Field ( 搬移字段 )"></a>7.2 Move Field ( 搬移字段 )</h4><p>你的程序中，某个字段被其所驻类之外的另一个类更多地用到。</p>
+<p><strong>在目标类新建一个字段，修改源字段的所有用户，令它们改用新字段。</strong></p>
+<h4 id="7-3-Extract-Class-提炼类）"><a href="#7-3-Extract-Class-提炼类）" class="headerlink" title="7.3 Extract Class (提炼类）"></a>7.3 Extract Class (提炼类）</h4><p>某个类做了应该由两个类做的事。</p>
+<p><strong>建立一个新类，将相关的字段和函数从旧类搬移到新类。</strong></p>
+<h4 id="7-4-Inline-Class-将类内联化"><a href="#7-4-Inline-Class-将类内联化" class="headerlink" title="7.4 Inline Class (将类内联化)"></a>7.4 Inline Class (将类内联化)</h4><p>某个类没有做太多事情。</p>
+<p><strong>将这个类的所有特性搬移到另一个类中，然后移除原类。</strong></p>
+<h4 id="7-5-Hide-Delegate-隐藏“委托关系”）"><a href="#7-5-Hide-Delegate-隐藏“委托关系”）" class="headerlink" title="7.5 Hide Delegate (隐藏“委托关系”）"></a>7.5 Hide Delegate (隐藏“委托关系”）</h4><p>客户通过一个委托类来调用另一个对象。</p>
+<p><strong>在服务类上建立客户所需的所有函数，用以隐藏委托关系。</strong></p>
+<h4 id="7-6-Remove-Middle-Man-移除中间人"><a href="#7-6-Remove-Middle-Man-移除中间人" class="headerlink" title="7.6 Remove Middle Man (移除中间人)"></a>7.6 Remove Middle Man (移除中间人)</h4><p>某个类做了过多的简单委托动作。</p>
+<p><strong>让客户直接调用受托类。</strong></p>
+<h4 id="7-7-Introduce-Foreign-Method-引入外加函数"><a href="#7-7-Introduce-Foreign-Method-引入外加函数" class="headerlink" title="7.7 Introduce Foreign Method (引入外加函数)"></a>7.7 Introduce Foreign Method (引入外加函数)</h4><p>你需要为提供服务的类增加一个函数，但你无法修改这个类。</p>
+<p><strong>在客户类中建立一个函数，并以第一参数形式传入一个服务类实例。</strong></p>
+<h4 id="7-8-Introduce-Local-Extension-引入本地扩展"><a href="#7-8-Introduce-Local-Extension-引入本地扩展" class="headerlink" title="7.8 Introduce Local Extension (引入本地扩展)"></a>7.8 Introduce Local Extension (引入本地扩展)</h4><p>你需要为服务类提供一些额外函数，但你无法修改这个类。</p>
+<p><strong>建立一个新类，使它包含这些额外函数。让这个扩展品成为源类的子类或包装类。</strong></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/07/Shell%E7%AC%94%E8%AE%B0/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Blore</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">121k</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Blore-lzn","repo":"blore-lzn.github.io","client_id":"f90fbb660b34594a2600","client_secret":"a879303fb0b8d2a2cb17e47f2ed90f9629085c1d","admin_user":"Blore-lzn","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"52192ce91082f435c6bb05a5807ab212"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

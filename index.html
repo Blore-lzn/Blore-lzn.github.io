@@ -84,7 +84,7 @@
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">9</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">4</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">18</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">20</span></a></li>
   </ul>
 </nav>
 
@@ -131,7 +131,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -182,6 +182,206 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blore-lzn.github.io/2022/03/07/JavaRefractor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Blore.jpg">
+      <meta itemprop="name" content="Blore">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blore's Home">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/07/JavaRefractor/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-07 23:23:52" itemprop="dateCreated datePublished" datetime="2022-03-07T23:23:52+08:00">2022-03-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-03-16 11:19:22" itemprop="dateModified" datetime="2022-03-16T11:19:22+08:00">2022-03-16</time>
+      </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.2k</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="读书笔记：《重构-改善既有代码的设计》"><a href="#读书笔记：《重构-改善既有代码的设计》" class="headerlink" title="读书笔记：《重构 改善既有代码的设计》"></a>读书笔记：《重构 改善既有代码的设计》</h1><h2 id="第1章-重构，第一个案例"><a href="#第1章-重构，第一个案例" class="headerlink" title="第1章 重构，第一个案例"></a>第1章 重构，第一个案例</h2><h2 id="第2章-重构原则"><a href="#第2章-重构原则" class="headerlink" title="第2章 重构原则"></a>第2章 重构原则</h2><h3 id="2-3-何时重构"><a href="#2-3-何时重构" class="headerlink" title="2.3 何时重构"></a>2.3 何时重构</h3><p>三次法则：添加功能时重构、修补错误时重构、复审代码时重构</p>
+<h2 id="第3章-代码的坏味道"><a href="#第3章-代码的坏味道" class="headerlink" title="第3章 代码的坏味道"></a>第3章 代码的坏味道</h2><h4 id="3-1-Duplicated-Code（重复代码）"><a href="#3-1-Duplicated-Code（重复代码）" class="headerlink" title="3.1 Duplicated Code（重复代码）"></a>3.1 Duplicated Code（重复代码）</h4><h4 id="3-2-Long-Method（过长函数）"><a href="#3-2-Long-Method（过长函数）" class="headerlink" title="3.2 Long Method（过长函数）"></a>3.2 Long Method（过长函数）</h4><h4 id="3-3-Large-Class-（过大的类）"><a href="#3-3-Large-Class-（过大的类）" class="headerlink" title="3.3 Large Class （过大的类）"></a>3.3 Large Class （过大的类）</h4><h4 id="3-4-Long-Parameter-List-（过长参数列）"><a href="#3-4-Long-Parameter-List-（过长参数列）" class="headerlink" title="3.4 Long Parameter List （过长参数列）"></a>3.4 Long Parameter List （过长参数列）</h4><h4 id="3-5-Divergent-Change-（发散式变化）"><a href="#3-5-Divergent-Change-（发散式变化）" class="headerlink" title="3.5 Divergent Change （发散式变化）"></a>3.5 Divergent Change （发散式变化）</h4><p>一个类受多种变化的影响</p>
+<h4 id="3-6-Shotgun-Surgery-（霰弹式修改）"><a href="#3-6-Shotgun-Surgery-（霰弹式修改）" class="headerlink" title="3.6 Shotgun Surgery （霰弹式修改）"></a>3.6 Shotgun Surgery （霰弹式修改）</h4><p>一种变化引发多个类相应修改</p>
+<h4 id="3-7-Feature-Envy-（依恋情结）"><a href="#3-7-Feature-Envy-（依恋情结）" class="headerlink" title="3.7 Feature Envy （依恋情结）"></a>3.7 Feature Envy （依恋情结）</h4><p>函数对某个类的兴趣高过对自己所处类的兴趣</p>
+<h4 id="3-8-Data-Clumps-（数据泥团）"><a href="#3-8-Data-Clumps-（数据泥团）" class="headerlink" title="3.8 Data Clumps （数据泥团）"></a>3.8 Data Clumps （数据泥团）</h4><p>两个类相同的字段、许多函数签名中相同的参数</p>
+<h4 id="3-9-Primitive-Obession-（基本类型偏执）"><a href="#3-9-Primitive-Obession-（基本类型偏执）" class="headerlink" title="3.9 Primitive Obession （基本类型偏执）"></a>3.9 Primitive Obession （基本类型偏执）</h4><h4 id="3-10-Switch-Statements-（switch-惊悚现身）"><a href="#3-10-Switch-Statements-（switch-惊悚现身）" class="headerlink" title="3.10 Switch Statements （switch 惊悚现身）"></a>3.10 Switch Statements （switch 惊悚现身）</h4><h4 id="3-11-Paralle-Inheritance-Hierarchies-（平行继承体系）"><a href="#3-11-Paralle-Inheritance-Hierarchies-（平行继承体系）" class="headerlink" title="3.11 Paralle Inheritance Hierarchies （平行继承体系）"></a>3.11 Paralle Inheritance Hierarchies （平行继承体系）</h4><p>每当为一个类添加一个子类，必须也为另一个类相应添加一个子类</p>
+<h4 id="3-12-Lazy-Class-（冗赘类）"><a href="#3-12-Lazy-Class-（冗赘类）" class="headerlink" title="3.12 Lazy Class （冗赘类）"></a>3.12 Lazy Class （冗赘类）</h4><h4 id="3-13-Speculative-Generality-（夸夸其谈未来性）"><a href="#3-13-Speculative-Generality-（夸夸其谈未来性）" class="headerlink" title="3.13 Speculative Generality （夸夸其谈未来性）"></a>3.13 Speculative Generality （夸夸其谈未来性）</h4><h4 id="3-14-Temporary-Field-（令人迷惑的暂时字段）"><a href="#3-14-Temporary-Field-（令人迷惑的暂时字段）" class="headerlink" title="3.14 Temporary Field （令人迷惑的暂时字段）"></a>3.14 Temporary Field （令人迷惑的暂时字段）</h4><h4 id="3-15-Message-Chains-（过度耦合的消息链）"><a href="#3-15-Message-Chains-（过度耦合的消息链）" class="headerlink" title="3.15 Message Chains （过度耦合的消息链）"></a>3.15 Message Chains （过度耦合的消息链）</h4><h4 id="3-16-Middle-Man-（中间人）"><a href="#3-16-Middle-Man-（中间人）" class="headerlink" title="3.16 Middle Man （中间人）"></a>3.16 Middle Man （中间人）</h4><h4 id="3-17-Inappropriate-（狎昵关系）"><a href="#3-17-Inappropriate-（狎昵关系）" class="headerlink" title="3.17 Inappropriate （狎昵关系）"></a>3.17 Inappropriate （狎昵关系）</h4><p>两个类过分关注彼此private成分</p>
+<h4 id="3-18-Alternative-Classes-with-Different-Interfaces-（异曲同工的类）"><a href="#3-18-Alternative-Classes-with-Different-Interfaces-（异曲同工的类）" class="headerlink" title="3.18 Alternative Classes with Different Interfaces （异曲同工的类）"></a>3.18 Alternative Classes with Different Interfaces （异曲同工的类）</h4><h4 id="3-19-Incomplete-Library-Class-（不完美的库类）"><a href="#3-19-Incomplete-Library-Class-（不完美的库类）" class="headerlink" title="3.19 Incomplete Library Class （不完美的库类）"></a>3.19 Incomplete Library Class （不完美的库类）</h4><h4 id="3-20-Data-Class-（纯粹的数据类）"><a href="#3-20-Data-Class-（纯粹的数据类）" class="headerlink" title="3.20 Data Class （纯粹的数据类）"></a>3.20 Data Class （纯粹的数据类）</h4><h4 id="3-21-Refused-Bequest-（被拒绝的馈赠）"><a href="#3-21-Refused-Bequest-（被拒绝的馈赠）" class="headerlink" title="3.21 Refused Bequest （被拒绝的馈赠）"></a>3.21 Refused Bequest （被拒绝的馈赠）</h4><p>子类不需要继承超类的函数和数据</p>
+<h4 id="3-22-Comments-（过多的注释）"><a href="#3-22-Comments-（过多的注释）" class="headerlink" title="3.22 Comments （过多的注释）"></a>3.22 Comments （过多的注释）</h4><h2 id="第4章-构建测试体系"><a href="#第4章-构建测试体系" class="headerlink" title="第4章 构建测试体系"></a>第4章 构建测试体系</h2><h2 id="第5章-重构列表"><a href="#第5章-重构列表" class="headerlink" title="第5章 重构列表"></a>第5章 重构列表</h2><h2 id="第6章-重新组织函数"><a href="#第6章-重新组织函数" class="headerlink" title="第6章 重新组织函数"></a>第6章 重新组织函数</h2><h4 id="6-1-Extract-Method-（提炼函数）"><a href="#6-1-Extract-Method-（提炼函数）" class="headerlink" title="6.1 Extract Method （提炼函数）"></a>6.1 Extract Method （提炼函数）</h4><p>你有一段代码可以被组织在一起并独立出来。</p>
+<p><strong>将这段代码放进一个独立函数中，并让函数名称解释该函数的用途。</strong></p>
+<h4 id="6-2-Inline-Method-（内联函数）"><a href="#6-2-Inline-Method-（内联函数）" class="headerlink" title="6.2 Inline Method （内联函数）"></a>6.2 Inline Method （内联函数）</h4><p>一个函数的本体与名称同样清楚易懂。</p>
+<p><strong>在函数调用点插入函数本体, 然后移除该函数。</strong></p>
+<h4 id="6-3-Inline-Temp-（内联临时变量）"><a href="#6-3-Inline-Temp-（内联临时变量）" class="headerlink" title="6.3 Inline Temp （内联临时变量）"></a>6.3 Inline Temp （内联临时变量）</h4><p>你有一个临时变量，只被一个简单表达式赋值一次，而它妨碍了其他重构手法。</p>
+<p><strong>将所有对该变量的引用动作, 替换为对它賦值的那个表达式自身。</strong></p>
+<h4 id="6-4-Replace-Temp-with-Quert-（以查询取代临时变量）"><a href="#6-4-Replace-Temp-with-Quert-（以查询取代临时变量）" class="headerlink" title="6.4 Replace Temp with Quert （以查询取代临时变量）"></a>6.4 Replace Temp with Quert （以查询取代临时变量）</h4><p>局部变量会使代码难以提炼。</p>
+<p><strong>将这个表达式提炼到一个独立函数中。将这个临时变量的所有引用点替换为对新函数的调用。此后，新函数就可被其他函数使用。</strong></p>
+<h4 id="6-5-Introduce-Explaining-Variable-（引入解释性变量）"><a href="#6-5-Introduce-Explaining-Variable-（引入解释性变量）" class="headerlink" title="6.5 Introduce Explaining Variable （引入解释性变量）"></a>6.5 Introduce Explaining Variable （引入解释性变量）</h4><p>你有一个复杂的表达式。</p>
+<p><strong>将这个表达式提炼到一个独立函数中。将这个临时变量的所有引用点替换为对新函数的调用。此后，新函数就可被其他函数使用。</strong></p>
+<h4 id="6-6-Split-Temporary-Variable-（分解临时变量）"><a href="#6-6-Split-Temporary-Variable-（分解临时变量）" class="headerlink" title="6.6 Split Temporary Variable （分解临时变量）"></a>6.6 Split Temporary Variable （分解临时变量）</h4><p>你的程序有某个临时变量被赋值超过一次, 它既不是循环变量,也不被用于收集计算结果。</p>
+<p><strong>针对每次賦值，创造一个独立、对应的临时变置。</strong></p>
+<h4 id="6-7-Remove-Assignments-to-Parameters-（移除对参数的赋值）"><a href="#6-7-Remove-Assignments-to-Parameters-（移除对参数的赋值）" class="headerlink" title="6.7 Remove Assignments to Parameters （移除对参数的赋值）"></a>6.7 Remove Assignments to Parameters （移除对参数的赋值）</h4><p>代码对一个参数进行赋值。</p>
+<p><strong>以一个临时变量取代该参数的位置。</strong></p>
+<h4 id="6-8-Replace-Method-with-Method-Object-（以函数对象取代函数）"><a href="#6-8-Replace-Method-with-Method-Object-（以函数对象取代函数）" class="headerlink" title="6.8 Replace Method with Method Object （以函数对象取代函数）"></a>6.8 Replace Method with Method Object （以函数对象取代函数）</h4><p>你有一个大型函数，其中对局部变量的使用使你无法采用Extract Method（6.1）</p>
+<p><strong>将这个函数放进一个单独对象中，如此一来局部变置就成了对象内的字段。然后你可以在同一个对象中将这个大型函数分解为多个小型函数。</strong></p>
+<h4 id="6-9-Substitude-Algorithm-（替换算法）"><a href="#6-9-Substitude-Algorithm-（替换算法）" class="headerlink" title="6.9 Substitude Algorithm （替换算法）"></a>6.9 Substitude Algorithm （替换算法）</h4><p>你想要把某个算法替换为另一个更清晰的算法。</p>
+<p><strong>将函数本体替换为另一个算法。</strong></p>
+<h2 id="第7章-在对象之间搬移特性"><a href="#第7章-在对象之间搬移特性" class="headerlink" title="第7章 在对象之间搬移特性"></a>第7章 在对象之间搬移特性</h2><h4 id="7-1-Move-Method-搬移函数"><a href="#7-1-Move-Method-搬移函数" class="headerlink" title="7.1 Move Method (搬移函数)"></a>7.1 Move Method (搬移函数)</h4><p>你的程序中，有个函数与其所驻类之外的另一个类进行更多交流，调用后者，或被后者调用。</p>
+<p><strong>在该函数最常引用的类中建立一个有着类似行为的新函数。将旧函数变成一个单纯的委托函数，或是将旧函数完全移除。</strong></p>
+<h4 id="7-2-Move-Field-搬移字段"><a href="#7-2-Move-Field-搬移字段" class="headerlink" title="7.2 Move Field ( 搬移字段 )"></a>7.2 Move Field ( 搬移字段 )</h4><p>你的程序中，某个字段被其所驻类之外的另一个类更多地用到。</p>
+<p><strong>在目标类新建一个字段，修改源字段的所有用户，令它们改用新字段。</strong></p>
+<h4 id="7-3-Extract-Class-提炼类）"><a href="#7-3-Extract-Class-提炼类）" class="headerlink" title="7.3 Extract Class (提炼类）"></a>7.3 Extract Class (提炼类）</h4><p>某个类做了应该由两个类做的事。</p>
+<p><strong>建立一个新类，将相关的字段和函数从旧类搬移到新类。</strong></p>
+<h4 id="7-4-Inline-Class-将类内联化"><a href="#7-4-Inline-Class-将类内联化" class="headerlink" title="7.4 Inline Class (将类内联化)"></a>7.4 Inline Class (将类内联化)</h4><p>某个类没有做太多事情。</p>
+<p><strong>将这个类的所有特性搬移到另一个类中，然后移除原类。</strong></p>
+<h4 id="7-5-Hide-Delegate-隐藏“委托关系”）"><a href="#7-5-Hide-Delegate-隐藏“委托关系”）" class="headerlink" title="7.5 Hide Delegate (隐藏“委托关系”）"></a>7.5 Hide Delegate (隐藏“委托关系”）</h4><p>客户通过一个委托类来调用另一个对象。</p>
+<p><strong>在服务类上建立客户所需的所有函数，用以隐藏委托关系。</strong></p>
+<h4 id="7-6-Remove-Middle-Man-移除中间人"><a href="#7-6-Remove-Middle-Man-移除中间人" class="headerlink" title="7.6 Remove Middle Man (移除中间人)"></a>7.6 Remove Middle Man (移除中间人)</h4><p>某个类做了过多的简单委托动作。</p>
+<p><strong>让客户直接调用受托类。</strong></p>
+<h4 id="7-7-Introduce-Foreign-Method-引入外加函数"><a href="#7-7-Introduce-Foreign-Method-引入外加函数" class="headerlink" title="7.7 Introduce Foreign Method (引入外加函数)"></a>7.7 Introduce Foreign Method (引入外加函数)</h4><p>你需要为提供服务的类增加一个函数，但你无法修改这个类。</p>
+<p><strong>在客户类中建立一个函数，并以第一参数形式传入一个服务类实例。</strong></p>
+<h4 id="7-8-Introduce-Local-Extension-引入本地扩展"><a href="#7-8-Introduce-Local-Extension-引入本地扩展" class="headerlink" title="7.8 Introduce Local Extension (引入本地扩展)"></a>7.8 Introduce Local Extension (引入本地扩展)</h4><p>你需要为服务类提供一些额外函数，但你无法修改这个类。</p>
+<p><strong>建立一个新类，使它包含这些额外函数。让这个扩展品成为源类的子类或包装类。</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blore-lzn.github.io/2022/03/07/Shell%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Blore.jpg">
+      <meta itemprop="name" content="Blore">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blore's Home">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/07/Shell%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-07 19:00:39" itemprop="dateCreated datePublished" datetime="2022-03-07T19:00:39+08:00">2022-03-07</time>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>268</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Shell笔记"><a href="#Shell笔记" class="headerlink" title="Shell笔记"></a>Shell笔记</h1><blockquote>
+<p>原文 <a target="_blank" rel="noopener" href="https://missing-semester-cn.github.io/">https://missing-semester-cn.github.io/</a></p>
+</blockquote>
+<h2 id="在shell中导航"><a href="#在shell中导航" class="headerlink" title="在shell中导航"></a>在shell中导航</h2><p><code>pwd</code>：获取当前工作目录。<br><code>cd</code>：切换目录。<code>.</code> 表示当前目录，<code>..</code>表示上级目录。<br><code>ls</code>：看指定目录下包含哪些文件。<br><code>mv</code>：用于重命名或移动文件<br><code>cp</code>：拷贝文件<br><code>mkdir</code>：新建文件夹<br><code>man (cmd)</code>：展现指令文档（用户手册）<br><code>(cmd) -h/--help</code>：指令帮助信息</p>
+<h2 id="在程序间创建连接"><a href="#在程序间创建连接" class="headerlink" title="在程序间创建连接"></a>在程序间创建连接</h2><p><code>&lt; file</code> 和 <code>&gt; file</code>：将程序的输入输出流分别重定向到文件</p>
+<p><code>&gt;&gt;</code>：向一个文件追加内容</p>
+<p><code>|</code>：将一个程序的输出和另外一个程序的输入连接起来</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1087,274 +1287,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blore-lzn.github.io/2021/08/07/Codeforce/CF-Educationa-112/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/Blore.jpg">
-      <meta itemprop="name" content="Blore">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blore's Home">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/07/Codeforce/CF-Educationa-112/" class="post-title-link" itemprop="url">Educational Codeforces Round 112</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-07 22:42:58" itemprop="dateCreated datePublished" datetime="2021-08-07T22:42:58+08:00">2021-08-07</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-03-02 22:00:08" itemprop="dateModified" datetime="2022-03-02T22:00:08+08:00">2022-03-02</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">算法竞赛</span></a>
-        </span>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>14k</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>（模拟赛）</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>题目</th>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>D</th>
-<th>E</th>
-<th>F</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>通过情况</td>
-<td>AC</td>
-<td>AC</td>
-<td>AC</td>
-<td>AC</td>
-<td>O</td>
-<td>O</td>
-</tr>
-<tr>
-<td>难度</td>
-<td>900</td>
-<td>1300</td>
-<td>1300</td>
-<td>1600</td>
-<td>2100</td>
-<td>2700</td>
-</tr>
-</tbody>
-</table>
-</div>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/07/Codeforce/CF-Educationa-112/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blore-lzn.github.io/2021/08/06/Codeforce/CF-734-div3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/Blore.jpg">
-      <meta itemprop="name" content="Blore">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blore's Home">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/06/Codeforce/CF-734-div3/" class="post-title-link" itemprop="url">CF#734 div3</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-06 17:48:08" itemprop="dateCreated datePublished" datetime="2021-08-06T17:48:08+08:00">2021-08-06</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-03-02 22:00:03" itemprop="dateModified" datetime="2022-03-02T22:00:03+08:00">2022-03-02</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">算法竞赛</span></a>
-        </span>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>12k</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>（模拟赛）</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>题目</th>
-<th>A</th>
-<th>B1</th>
-<th>B2</th>
-<th>C</th>
-<th>D1</th>
-<th>D2</th>
-<th>E</th>
-<th>F</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>通过情况</td>
-<td>AC</td>
-<td>AC</td>
-<td>AC</td>
-<td>AC</td>
-<td>AC</td>
-<td>O</td>
-<td>AC</td>
-<td>O</td>
-</tr>
-<tr>
-<td>难度</td>
-<td>800</td>
-<td>800</td>
-<td>1400</td>
-<td>1500</td>
-<td>1700</td>
-<td>2100</td>
-<td>2000</td>
-<td>2200</td>
-</tr>
-</tbody>
-</table>
-</div>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/06/Codeforce/CF-734-div3/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -1379,7 +1311,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">119k</span>
+    <span title="Symbols count total">121k</span>
   </span>
 </div>
 <div class="busuanzi-count">
