@@ -20,23 +20,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blore-lzn.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blore&#39;s Home">
-<meta property="og:url" content="https://blore-lzn.github.io/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/page/2/index.html">
+<meta name="description" content="Shell笔记 原文 https:&#x2F;&#x2F;missing-semester-cn.github.io&#x2F;  在shell中导航pwd：获取当前工作目录。cd：切换目录。. 表示当前目录，..表示上级目录。ls：看指定目录下包含哪些文件。mv：用于重命名或移动文件cp：拷贝文件mkdir：新建文件夹man (cmd)：展现指令文档（用户手册）(cmd) -h&#x2F;--help：指令帮助信息 在程序间创建连接&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell">
+<meta property="og:url" content="https://blore-lzn.github.io/2022/04/01/shell/index.html">
 <meta property="og:site_name" content="Blore&#39;s Home">
+<meta property="og:description" content="Shell笔记 原文 https:&#x2F;&#x2F;missing-semester-cn.github.io&#x2F;  在shell中导航pwd：获取当前工作目录。cd：切换目录。. 表示当前目录，..表示上级目录。ls：看指定目录下包含哪些文件。mv：用于重命名或移动文件cp：拷贝文件mkdir：新建文件夹man (cmd)：展现指令文档（用户手册）(cmd) -h&#x2F;--help：指令帮助信息 在程序间创建连接&amp;">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-01T15:33:00.000Z">
+<meta property="article:modified_time" content="2022-04-01T15:33:11.547Z">
 <meta property="article:author" content="Blore">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://blore-lzn.github.io/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/page/2/">
+<link rel="canonical" href="https://blore-lzn.github.io/2022/04/01/shell/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"categories/算法竞赛/page/2/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blore-lzn.github.io/2022/04/01/shell/","path":"2022/04/01/shell/","title":"shell"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Category: 算法竞赛 | Blore's Home</title>
+<title>shell | Blore's Home</title>
   
 
 
@@ -102,7 +106,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -115,6 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell%E7%AC%94%E8%AE%B0"><span class="nav-text">Shell笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8shell%E4%B8%AD%E5%AF%BC%E8%88%AA"><span class="nav-text">在shell中导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E7%A8%8B%E5%BA%8F%E9%97%B4%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5"><span class="nav-text">在程序间创建连接</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -181,74 +186,108 @@
 </noscript>
 
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">算法竞赛
-          <small>Category</small>
-        </h2>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blore-lzn.github.io/2022/04/01/shell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Blore.jpg">
+      <meta itemprop="name" content="Blore">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blore's Home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          shell
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="Created: 2022-04-01 23:33:00 / Modified: 23:33:11" itemprop="dateCreated datePublished" datetime="2022-04-01T23:33:00+08:00">2022-04-01</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>268</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Shell笔记"><a href="#Shell笔记" class="headerlink" title="Shell笔记"></a>Shell笔记</h1><blockquote>
+<p>原文 <a target="_blank" rel="noopener" href="https://missing-semester-cn.github.io/">https://missing-semester-cn.github.io/</a></p>
+</blockquote>
+<h2 id="在shell中导航"><a href="#在shell中导航" class="headerlink" title="在shell中导航"></a>在shell中导航</h2><p><code>pwd</code>：获取当前工作目录。<br><code>cd</code>：切换目录。<code>.</code> 表示当前目录，<code>..</code>表示上级目录。<br><code>ls</code>：看指定目录下包含哪些文件。<br><code>mv</code>：用于重命名或移动文件<br><code>cp</code>：拷贝文件<br><code>mkdir</code>：新建文件夹<br><code>man (cmd)</code>：展现指令文档（用户手册）<br><code>(cmd) -h/--help</code>：指令帮助信息</p>
+<h2 id="在程序间创建连接"><a href="#在程序间创建连接" class="headerlink" title="在程序间创建连接"></a>在程序间创建连接</h2><p><code>&lt; file</code> 和 <code>&gt; file</code>：将程序的输入输出流分别重定向到文件</p>
+<p><code>&gt;&gt;</code>：向一个文件追加内容</p>
+<p><code>|</code>：将一个程序的输出和另外一个程序的输入连接起来</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-15T21:00:38+08:00"
-              content="2021-07-15">
-          07-15
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/15/Codeforce/CF-732-div2/" itemprop="url">
-            <span itemprop="name">CF#732 div2</span>
-          </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/01/os-defination-queue-h/" rel="prev" title="os_defination_queue_h">
+                  <i class="fa fa-chevron-left"></i> os_defination_queue_h
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-12T22:17:48+08:00"
-              content="2021-07-12">
-          07-12
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/12/Codeforce/CF-730-div2/" itemprop="url">
-            <span itemprop="name">CF#730 div2</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-    </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">1</a><span class="page-number current">2</span>
-  </nav>
 
+
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -319,7 +358,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Blore-lzn","repo":"blore-lzn.github.io","client_id":"f90fbb660b34594a2600","client_secret":"a879303fb0b8d2a2cb17e47f2ed90f9629085c1d","admin_user":"Blore-lzn","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"e87277e7f3365e8de67da8076c8d9cf3"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Blore-lzn","repo":"blore-lzn.github.io","client_id":"f90fbb660b34594a2600","client_secret":"a879303fb0b8d2a2cb17e47f2ed90f9629085c1d","admin_user":"Blore-lzn","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"b28860081b7f03bceb92c6f3aa564c38"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
