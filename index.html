@@ -356,7 +356,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/07/JavaRefractor/" class="post-title-link" itemprop="url">Untitled</a>
+          <a href="/2022/03/07/JavaRefractor/" class="post-title-link" itemprop="url">读书笔记：《重构 改善既有代码的设计》</a>
         </h2>
 
         <div class="post-meta-container">
@@ -374,7 +374,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-03-16 11:19:22" itemprop="dateModified" datetime="2022-03-16T11:19:22+08:00">2022-03-16</time>
+        <time title="Modified: 2022-04-01 23:38:08" itemprop="dateModified" datetime="2022-04-01T23:38:08+08:00">2022-04-01</time>
       </span>
 
   
@@ -396,49 +396,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="读书笔记：《重构-改善既有代码的设计》"><a href="#读书笔记：《重构-改善既有代码的设计》" class="headerlink" title="读书笔记：《重构 改善既有代码的设计》"></a>读书笔记：《重构 改善既有代码的设计》</h1><h2 id="第1章-重构，第一个案例"><a href="#第1章-重构，第一个案例" class="headerlink" title="第1章 重构，第一个案例"></a>第1章 重构，第一个案例</h2><h2 id="第2章-重构原则"><a href="#第2章-重构原则" class="headerlink" title="第2章 重构原则"></a>第2章 重构原则</h2><h3 id="2-3-何时重构"><a href="#2-3-何时重构" class="headerlink" title="2.3 何时重构"></a>2.3 何时重构</h3><p>三次法则：添加功能时重构、修补错误时重构、复审代码时重构</p>
-<h2 id="第3章-代码的坏味道"><a href="#第3章-代码的坏味道" class="headerlink" title="第3章 代码的坏味道"></a>第3章 代码的坏味道</h2><h4 id="3-1-Duplicated-Code（重复代码）"><a href="#3-1-Duplicated-Code（重复代码）" class="headerlink" title="3.1 Duplicated Code（重复代码）"></a>3.1 Duplicated Code（重复代码）</h4><h4 id="3-2-Long-Method（过长函数）"><a href="#3-2-Long-Method（过长函数）" class="headerlink" title="3.2 Long Method（过长函数）"></a>3.2 Long Method（过长函数）</h4><h4 id="3-3-Large-Class-（过大的类）"><a href="#3-3-Large-Class-（过大的类）" class="headerlink" title="3.3 Large Class （过大的类）"></a>3.3 Large Class （过大的类）</h4><h4 id="3-4-Long-Parameter-List-（过长参数列）"><a href="#3-4-Long-Parameter-List-（过长参数列）" class="headerlink" title="3.4 Long Parameter List （过长参数列）"></a>3.4 Long Parameter List （过长参数列）</h4><h4 id="3-5-Divergent-Change-（发散式变化）"><a href="#3-5-Divergent-Change-（发散式变化）" class="headerlink" title="3.5 Divergent Change （发散式变化）"></a>3.5 Divergent Change （发散式变化）</h4><p>一个类受多种变化的影响</p>
-<h4 id="3-6-Shotgun-Surgery-（霰弹式修改）"><a href="#3-6-Shotgun-Surgery-（霰弹式修改）" class="headerlink" title="3.6 Shotgun Surgery （霰弹式修改）"></a>3.6 Shotgun Surgery （霰弹式修改）</h4><p>一种变化引发多个类相应修改</p>
-<h4 id="3-7-Feature-Envy-（依恋情结）"><a href="#3-7-Feature-Envy-（依恋情结）" class="headerlink" title="3.7 Feature Envy （依恋情结）"></a>3.7 Feature Envy （依恋情结）</h4><p>函数对某个类的兴趣高过对自己所处类的兴趣</p>
-<h4 id="3-8-Data-Clumps-（数据泥团）"><a href="#3-8-Data-Clumps-（数据泥团）" class="headerlink" title="3.8 Data Clumps （数据泥团）"></a>3.8 Data Clumps （数据泥团）</h4><p>两个类相同的字段、许多函数签名中相同的参数</p>
-<h4 id="3-9-Primitive-Obession-（基本类型偏执）"><a href="#3-9-Primitive-Obession-（基本类型偏执）" class="headerlink" title="3.9 Primitive Obession （基本类型偏执）"></a>3.9 Primitive Obession （基本类型偏执）</h4><h4 id="3-10-Switch-Statements-（switch-惊悚现身）"><a href="#3-10-Switch-Statements-（switch-惊悚现身）" class="headerlink" title="3.10 Switch Statements （switch 惊悚现身）"></a>3.10 Switch Statements （switch 惊悚现身）</h4><h4 id="3-11-Paralle-Inheritance-Hierarchies-（平行继承体系）"><a href="#3-11-Paralle-Inheritance-Hierarchies-（平行继承体系）" class="headerlink" title="3.11 Paralle Inheritance Hierarchies （平行继承体系）"></a>3.11 Paralle Inheritance Hierarchies （平行继承体系）</h4><p>每当为一个类添加一个子类，必须也为另一个类相应添加一个子类</p>
-<h4 id="3-12-Lazy-Class-（冗赘类）"><a href="#3-12-Lazy-Class-（冗赘类）" class="headerlink" title="3.12 Lazy Class （冗赘类）"></a>3.12 Lazy Class （冗赘类）</h4><h4 id="3-13-Speculative-Generality-（夸夸其谈未来性）"><a href="#3-13-Speculative-Generality-（夸夸其谈未来性）" class="headerlink" title="3.13 Speculative Generality （夸夸其谈未来性）"></a>3.13 Speculative Generality （夸夸其谈未来性）</h4><h4 id="3-14-Temporary-Field-（令人迷惑的暂时字段）"><a href="#3-14-Temporary-Field-（令人迷惑的暂时字段）" class="headerlink" title="3.14 Temporary Field （令人迷惑的暂时字段）"></a>3.14 Temporary Field （令人迷惑的暂时字段）</h4><h4 id="3-15-Message-Chains-（过度耦合的消息链）"><a href="#3-15-Message-Chains-（过度耦合的消息链）" class="headerlink" title="3.15 Message Chains （过度耦合的消息链）"></a>3.15 Message Chains （过度耦合的消息链）</h4><h4 id="3-16-Middle-Man-（中间人）"><a href="#3-16-Middle-Man-（中间人）" class="headerlink" title="3.16 Middle Man （中间人）"></a>3.16 Middle Man （中间人）</h4><h4 id="3-17-Inappropriate-（狎昵关系）"><a href="#3-17-Inappropriate-（狎昵关系）" class="headerlink" title="3.17 Inappropriate （狎昵关系）"></a>3.17 Inappropriate （狎昵关系）</h4><p>两个类过分关注彼此private成分</p>
-<h4 id="3-18-Alternative-Classes-with-Different-Interfaces-（异曲同工的类）"><a href="#3-18-Alternative-Classes-with-Different-Interfaces-（异曲同工的类）" class="headerlink" title="3.18 Alternative Classes with Different Interfaces （异曲同工的类）"></a>3.18 Alternative Classes with Different Interfaces （异曲同工的类）</h4><h4 id="3-19-Incomplete-Library-Class-（不完美的库类）"><a href="#3-19-Incomplete-Library-Class-（不完美的库类）" class="headerlink" title="3.19 Incomplete Library Class （不完美的库类）"></a>3.19 Incomplete Library Class （不完美的库类）</h4><h4 id="3-20-Data-Class-（纯粹的数据类）"><a href="#3-20-Data-Class-（纯粹的数据类）" class="headerlink" title="3.20 Data Class （纯粹的数据类）"></a>3.20 Data Class （纯粹的数据类）</h4><h4 id="3-21-Refused-Bequest-（被拒绝的馈赠）"><a href="#3-21-Refused-Bequest-（被拒绝的馈赠）" class="headerlink" title="3.21 Refused Bequest （被拒绝的馈赠）"></a>3.21 Refused Bequest （被拒绝的馈赠）</h4><p>子类不需要继承超类的函数和数据</p>
-<h4 id="3-22-Comments-（过多的注释）"><a href="#3-22-Comments-（过多的注释）" class="headerlink" title="3.22 Comments （过多的注释）"></a>3.22 Comments （过多的注释）</h4><h2 id="第4章-构建测试体系"><a href="#第4章-构建测试体系" class="headerlink" title="第4章 构建测试体系"></a>第4章 构建测试体系</h2><h2 id="第5章-重构列表"><a href="#第5章-重构列表" class="headerlink" title="第5章 重构列表"></a>第5章 重构列表</h2><h2 id="第6章-重新组织函数"><a href="#第6章-重新组织函数" class="headerlink" title="第6章 重新组织函数"></a>第6章 重新组织函数</h2><h4 id="6-1-Extract-Method-（提炼函数）"><a href="#6-1-Extract-Method-（提炼函数）" class="headerlink" title="6.1 Extract Method （提炼函数）"></a>6.1 Extract Method （提炼函数）</h4><p>你有一段代码可以被组织在一起并独立出来。</p>
-<p><strong>将这段代码放进一个独立函数中，并让函数名称解释该函数的用途。</strong></p>
-<h4 id="6-2-Inline-Method-（内联函数）"><a href="#6-2-Inline-Method-（内联函数）" class="headerlink" title="6.2 Inline Method （内联函数）"></a>6.2 Inline Method （内联函数）</h4><p>一个函数的本体与名称同样清楚易懂。</p>
-<p><strong>在函数调用点插入函数本体, 然后移除该函数。</strong></p>
-<h4 id="6-3-Inline-Temp-（内联临时变量）"><a href="#6-3-Inline-Temp-（内联临时变量）" class="headerlink" title="6.3 Inline Temp （内联临时变量）"></a>6.3 Inline Temp （内联临时变量）</h4><p>你有一个临时变量，只被一个简单表达式赋值一次，而它妨碍了其他重构手法。</p>
-<p><strong>将所有对该变量的引用动作, 替换为对它賦值的那个表达式自身。</strong></p>
-<h4 id="6-4-Replace-Temp-with-Quert-（以查询取代临时变量）"><a href="#6-4-Replace-Temp-with-Quert-（以查询取代临时变量）" class="headerlink" title="6.4 Replace Temp with Quert （以查询取代临时变量）"></a>6.4 Replace Temp with Quert （以查询取代临时变量）</h4><p>局部变量会使代码难以提炼。</p>
-<p><strong>将这个表达式提炼到一个独立函数中。将这个临时变量的所有引用点替换为对新函数的调用。此后，新函数就可被其他函数使用。</strong></p>
-<h4 id="6-5-Introduce-Explaining-Variable-（引入解释性变量）"><a href="#6-5-Introduce-Explaining-Variable-（引入解释性变量）" class="headerlink" title="6.5 Introduce Explaining Variable （引入解释性变量）"></a>6.5 Introduce Explaining Variable （引入解释性变量）</h4><p>你有一个复杂的表达式。</p>
-<p><strong>将这个表达式提炼到一个独立函数中。将这个临时变量的所有引用点替换为对新函数的调用。此后，新函数就可被其他函数使用。</strong></p>
-<h4 id="6-6-Split-Temporary-Variable-（分解临时变量）"><a href="#6-6-Split-Temporary-Variable-（分解临时变量）" class="headerlink" title="6.6 Split Temporary Variable （分解临时变量）"></a>6.6 Split Temporary Variable （分解临时变量）</h4><p>你的程序有某个临时变量被赋值超过一次, 它既不是循环变量,也不被用于收集计算结果。</p>
-<p><strong>针对每次賦值，创造一个独立、对应的临时变置。</strong></p>
-<h4 id="6-7-Remove-Assignments-to-Parameters-（移除对参数的赋值）"><a href="#6-7-Remove-Assignments-to-Parameters-（移除对参数的赋值）" class="headerlink" title="6.7 Remove Assignments to Parameters （移除对参数的赋值）"></a>6.7 Remove Assignments to Parameters （移除对参数的赋值）</h4><p>代码对一个参数进行赋值。</p>
-<p><strong>以一个临时变量取代该参数的位置。</strong></p>
-<h4 id="6-8-Replace-Method-with-Method-Object-（以函数对象取代函数）"><a href="#6-8-Replace-Method-with-Method-Object-（以函数对象取代函数）" class="headerlink" title="6.8 Replace Method with Method Object （以函数对象取代函数）"></a>6.8 Replace Method with Method Object （以函数对象取代函数）</h4><p>你有一个大型函数，其中对局部变量的使用使你无法采用Extract Method（6.1）</p>
-<p><strong>将这个函数放进一个单独对象中，如此一来局部变置就成了对象内的字段。然后你可以在同一个对象中将这个大型函数分解为多个小型函数。</strong></p>
-<h4 id="6-9-Substitude-Algorithm-（替换算法）"><a href="#6-9-Substitude-Algorithm-（替换算法）" class="headerlink" title="6.9 Substitude Algorithm （替换算法）"></a>6.9 Substitude Algorithm （替换算法）</h4><p>你想要把某个算法替换为另一个更清晰的算法。</p>
-<p><strong>将函数本体替换为另一个算法。</strong></p>
-<h2 id="第7章-在对象之间搬移特性"><a href="#第7章-在对象之间搬移特性" class="headerlink" title="第7章 在对象之间搬移特性"></a>第7章 在对象之间搬移特性</h2><h4 id="7-1-Move-Method-搬移函数"><a href="#7-1-Move-Method-搬移函数" class="headerlink" title="7.1 Move Method (搬移函数)"></a>7.1 Move Method (搬移函数)</h4><p>你的程序中，有个函数与其所驻类之外的另一个类进行更多交流，调用后者，或被后者调用。</p>
-<p><strong>在该函数最常引用的类中建立一个有着类似行为的新函数。将旧函数变成一个单纯的委托函数，或是将旧函数完全移除。</strong></p>
-<h4 id="7-2-Move-Field-搬移字段"><a href="#7-2-Move-Field-搬移字段" class="headerlink" title="7.2 Move Field ( 搬移字段 )"></a>7.2 Move Field ( 搬移字段 )</h4><p>你的程序中，某个字段被其所驻类之外的另一个类更多地用到。</p>
-<p><strong>在目标类新建一个字段，修改源字段的所有用户，令它们改用新字段。</strong></p>
-<h4 id="7-3-Extract-Class-提炼类）"><a href="#7-3-Extract-Class-提炼类）" class="headerlink" title="7.3 Extract Class (提炼类）"></a>7.3 Extract Class (提炼类）</h4><p>某个类做了应该由两个类做的事。</p>
-<p><strong>建立一个新类，将相关的字段和函数从旧类搬移到新类。</strong></p>
-<h4 id="7-4-Inline-Class-将类内联化"><a href="#7-4-Inline-Class-将类内联化" class="headerlink" title="7.4 Inline Class (将类内联化)"></a>7.4 Inline Class (将类内联化)</h4><p>某个类没有做太多事情。</p>
-<p><strong>将这个类的所有特性搬移到另一个类中，然后移除原类。</strong></p>
-<h4 id="7-5-Hide-Delegate-隐藏“委托关系”）"><a href="#7-5-Hide-Delegate-隐藏“委托关系”）" class="headerlink" title="7.5 Hide Delegate (隐藏“委托关系”）"></a>7.5 Hide Delegate (隐藏“委托关系”）</h4><p>客户通过一个委托类来调用另一个对象。</p>
-<p><strong>在服务类上建立客户所需的所有函数，用以隐藏委托关系。</strong></p>
-<h4 id="7-6-Remove-Middle-Man-移除中间人"><a href="#7-6-Remove-Middle-Man-移除中间人" class="headerlink" title="7.6 Remove Middle Man (移除中间人)"></a>7.6 Remove Middle Man (移除中间人)</h4><p>某个类做了过多的简单委托动作。</p>
-<p><strong>让客户直接调用受托类。</strong></p>
-<h4 id="7-7-Introduce-Foreign-Method-引入外加函数"><a href="#7-7-Introduce-Foreign-Method-引入外加函数" class="headerlink" title="7.7 Introduce Foreign Method (引入外加函数)"></a>7.7 Introduce Foreign Method (引入外加函数)</h4><p>你需要为提供服务的类增加一个函数，但你无法修改这个类。</p>
-<p><strong>在客户类中建立一个函数，并以第一参数形式传入一个服务类实例。</strong></p>
-<h4 id="7-8-Introduce-Local-Extension-引入本地扩展"><a href="#7-8-Introduce-Local-Extension-引入本地扩展" class="headerlink" title="7.8 Introduce Local Extension (引入本地扩展)"></a>7.8 Introduce Local Extension (引入本地扩展)</h4><p>你需要为服务类提供一些额外函数，但你无法修改这个类。</p>
-<p><strong>建立一个新类，使它包含这些额外函数。让这个扩展品成为源类的子类或包装类。</strong></p>
-
+          <h1 id="读书笔记：《重构-改善既有代码的设计》"><a href="#读书笔记：《重构-改善既有代码的设计》" class="headerlink" title="读书笔记：《重构 改善既有代码的设计》"></a>读书笔记：《重构 改善既有代码的设计》</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/07/JavaRefractor/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -576,7 +542,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-03-02 23:27:30" itemprop="dateModified" datetime="2022-03-02T23:27:30+08:00">2022-03-02</time>
+        <time title="Modified: 2022-04-01 23:36:54" itemprop="dateModified" datetime="2022-04-01T23:36:54+08:00">2022-04-01</time>
       </span>
 
   
@@ -598,8 +564,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>、</p>
-<h2 id="数学建模常见的赛题类型"><a href="#数学建模常见的赛题类型" class="headerlink" title="数学建模常见的赛题类型"></a><strong>数学建模常见的赛题类型</strong></h2>
+          <h2 id="数学建模常见的赛题类型"><a href="#数学建模常见的赛题类型" class="headerlink" title="数学建模常见的赛题类型"></a><strong>数学建模常见的赛题类型</strong></h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/09/06/ModelSummary/#more" rel="contents">
