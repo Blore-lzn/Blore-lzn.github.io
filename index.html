@@ -84,7 +84,7 @@
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">9</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">4</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">21</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">22</span></a></li>
   </ul>
 </nav>
 
@@ -131,7 +131,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -182,6 +182,108 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blore-lzn.github.io/2022/09/02/csystemclass1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Blore.jpg">
+      <meta itemprop="name" content="Blore">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blore's Home">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/02/csystemclass1/" class="post-title-link" itemprop="url">C系统级编程CLASS1</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-09-02 22:52:48 / Modified: 23:08:31" itemprop="dateCreated datePublished" datetime="2022-09-02T22:52:48+08:00">2022-09-02</time>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>618</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3047.pdf">参考资料</a>主要内容为6.2.5</p>
+<h2 id="C语言中的类型关系"><a href="#C语言中的类型关系" class="headerlink" title="C语言中的类型关系"></a>C语言中的类型关系</h2><p><img src="https://blore-lzn.github.io/images/1.png" alt=""></p>
+<h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><p>在C语言中，声明一个变量具有两个基本要素： </p>
+<p>1、对象类型 Object Type </p>
+<p>2、变量名称（标示符） Identifier </p>
+<p>对象类型约定了这段内存的类型和大小 </p>
+<p>变量名称则是这块内存的别名，用于识别定位这块内存 </p>
+<p>对象类型进一步分为： </p>
+<p>1、非数组对象类型 </p>
+<p>2、数组对象类型</p>
+<h2 id="数组对象类型"><a href="#数组对象类型" class="headerlink" title="数组对象类型"></a>数组对象类型</h2><p>数组对象类型是多个同样的对象类型组成的一种<strong>一维</strong>构造类型 </p>
+<p>包含两要素：1、元素个数，2、元素的对象类型 </p>
+<p>1、数组对象类型的元素可以是非数组对象类型</p>
+<p>2、数组对象类型的元素也可以是其他数组对象类型</p>
+<p>注意：C语言数组对象类型其实都是一维的</p>
+<h2 id="指针对象类型"><a href="#指针对象类型" class="headerlink" title="指针对象类型"></a>指针对象类型</h2><p>1、指针对象类型是一个非数组对象类型 </p>
+<p>2、任何一种对象类型，都有指向其的一个指针对象类型，反之亦然 </p>
+<p>3、指针对象类型也有相应的指向其的另一个指针对象类型 </p>
+<p>4、指针对象类型也可以用来构造数组类型，作为数组对象中元素的对象类型 </p>
+<p>5、指针对象类型构成的数组对象也有其对应的指针对象</p>
+<p>int*[2]        -&gt;     PINT[2]</p>
+<p>PINT[2]    &lt;-&gt;     PINT(*)[2]（指向PINT[2]的指针）</p>
+<h2 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h2><h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>如何将int[2][3]定义为VVINT类型</p>
+<p>1: typedef int VVINT[2][3];</p>
+<p>2: typedef int VINT[3]; typedef VINT VVINT[2];</p>
+<h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><p>typedef int* PINT; </p>
+<p>1、int* p, q; </p>
+<p>2、PINT p, q;</p>
+<p>在1中q为int，在2中q为PINT</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -297,6 +399,13 @@
 
       <time title="Created: 2022-04-01 23:32:53" itemprop="dateCreated datePublished" datetime="2022-04-01T23:32:53+08:00">2022-04-01</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-09-02 22:52:03" itemprop="dateModified" datetime="2022-09-02T22:52:03+08:00">2022-09-02</time>
+      </span>
 
   
       </div>
@@ -306,7 +415,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>0</span>
+      <span>3.6k</span>
     </span>
 </div>
 
@@ -317,7 +426,65 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <h1 id="OS-宏定义-queue-h"><a href="#OS-宏定义-queue-h" class="headerlink" title="OS 宏定义 queue.h"></a>OS 宏定义 queue.h</h1><h2 id="一、基础定义"><a href="#一、基础定义" class="headerlink" title="一、基础定义"></a>一、基础定义</h2><h3 id="LIST-HEAD-name-type"><a href="#LIST-HEAD-name-type" class="headerlink" title="LIST_HEAD(name, type)"></a>LIST_HEAD(name, type)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_HEAD(name, type)                                           	\</span><br><span class="line">        struct name &#123;                                                           \</span><br><span class="line">                struct type *lh_first;  /* first element */                     \</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p>name - 链表名</p>
+<p>type - 链表内储存单元名</p>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>用于定义链表类型</p>
+<h3 id="LIST-HEAD-INITIALIZER-head-（存疑）"><a href="#LIST-HEAD-INITIALIZER-head-（存疑）" class="headerlink" title="LIST_HEAD_INITIALIZER(head) （存疑）"></a>LIST_HEAD_INITIALIZER(head) （存疑）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_HEAD_INITIALIZER(head)                                     \</span><br><span class="line">        &#123; NULL &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h4><p>返回NULL，用于初始化链表头</p>
+<h3 id="LIST-ENTRY-type"><a href="#LIST-ENTRY-type" class="headerlink" title="LIST_ENTRY(type)"></a>LIST_ENTRY(type)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_ENTRY(type)                                                	\</span><br><span class="line">        struct &#123;                                                                \</span><br><span class="line">                struct type *le_next;   /* next element */                      \</span><br><span class="line">                struct type **le_prev;  /* address of previous next element */  \</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h4><p>type - 链表内储存单元名</p>
+<h4 id="作用-2"><a href="#作用-2" class="headerlink" title="作用"></a>作用</h4><p>链表项，定义在链表储存单元中，用于指向前/后储存单元。实际使用中作为储存单元的一部分出现。</p>
+<h3 id="LIST-EMPTY-head"><a href="#LIST-EMPTY-head" class="headerlink" title="LIST_EMPTY(head)"></a>LIST_EMPTY(head)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_EMPTY(head)        ((head)-&gt;lh_first == NULL)</span><br></pre></td></tr></table></figure>
+<h4 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h4><p>head - 链表头指针</p>
+<h4 id="作用-3"><a href="#作用-3" class="headerlink" title="作用"></a>作用</h4><p>判断链表是否为空</p>
+<h3 id="LIST-FIRST-head"><a href="#LIST-FIRST-head" class="headerlink" title="LIST_FIRST(head)"></a>LIST_FIRST(head)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_FIRST(head)        ((head)-&gt;lh_first)</span><br></pre></td></tr></table></figure>
+<h4 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h4><p>head - 链表头指针</p>
+<h4 id="作用-4"><a href="#作用-4" class="headerlink" title="作用"></a>作用</h4><p>返回链表中第一个元素指针</p>
+<h3 id="LIST-FOREACH-var-head-field"><a href="#LIST-FOREACH-var-head-field" class="headerlink" title="LIST_FOREACH(var, head, field)"></a>LIST_FOREACH(var, head, field)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_FOREACH(var, head, field)                                  \</span><br><span class="line">        for ((var) = LIST_FIRST((head));                                \</span><br><span class="line">                 (var);                                                 \</span><br><span class="line">                 (var) = LIST_NEXT((var), field))</span><br></pre></td></tr></table></figure>
+<h4 id="参数-4"><a href="#参数-4" class="headerlink" title="参数"></a>参数</h4><p>var - 遍历用链表储存单元指针（迭代器）</p>
+<p>head - 链表头指针</p>
+<p>field - 链表项（数据类型定义为LIST_ENTRY）</p>
+<h4 id="作用-5"><a href="#作用-5" class="headerlink" title="作用"></a>作用</h4><p>遍历链表中所有元素</p>
+<h3 id="LIST-INIT-head"><a href="#LIST-INIT-head" class="headerlink" title="LIST_INIT(head)"></a>LIST_INIT(head)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_INIT(head) do &#123;                                            \</span><br><span class="line">                LIST_FIRST((head)) = NULL;                              \</span><br><span class="line">        &#125; while (0)</span><br></pre></td></tr></table></figure>
+<h4 id="参数-5"><a href="#参数-5" class="headerlink" title="参数"></a>参数</h4><p>head - 链表头指针</p>
+<h4 id="作用-6"><a href="#作用-6" class="headerlink" title="作用"></a>作用</h4><p>初始化链表头指针指向为空</p>
+<h3 id="LIST-INSERT-AFTER-listelm-elm-field"><a href="#LIST-INSERT-AFTER-listelm-elm-field" class="headerlink" title="LIST_INSERT_AFTER(listelm, elm, field)"></a>LIST_INSERT_AFTER(listelm, elm, field)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_INSERT_AFTER(listelm, elm, field) do &#123;														\</span><br><span class="line">		LIST_NEXT((elm), field) = LIST_NEXT((listelm), field);										\</span><br><span class="line">		if (LIST_NEXT((listelm), field) != NULL) &#123;																\</span><br><span class="line">			LIST_NEXT((listelm), field)-&gt;field.le_prev = &amp;LIST_NEXT((elm), field);	\</span><br><span class="line">		&#125;																																					\</span><br><span class="line">		LIST_NEXT((listelm), field) = (elm);																			\</span><br><span class="line">		(elm)-&gt;field.le_prev = (listelm);																					\</span><br><span class="line">        &#125; while (0)</span><br></pre></td></tr></table></figure>
+<h4 id="参数-6"><a href="#参数-6" class="headerlink" title="参数"></a>参数</h4><p>listelm - 链表中原有储存单元指针</p>
+<p>elm - 新储存单元指针</p>
+<p>field - 链表项（数据类型定义为LIST_ENTRY）</p>
+<h4 id="作用-7"><a href="#作用-7" class="headerlink" title="作用"></a>作用</h4><p>将 elm 插到已有元素 listelm 之后。</p>
+<h3 id="LIST-INSERT-BEFORE-listelm-elm-field"><a href="#LIST-INSERT-BEFORE-listelm-elm-field" class="headerlink" title="LIST_INSERT_BEFORE(listelm, elm, field)"></a>LIST_INSERT_BEFORE(listelm, elm, field)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_INSERT_BEFORE(listelm, elm, field) do &#123;		                \</span><br><span class="line">                (elm)-&gt;field.le_prev = (listelm)-&gt;field.le_prev;                \</span><br><span class="line">                LIST_NEXT((elm), field) = (listelm);                            \</span><br><span class="line">                *(listelm)-&gt;field.le_prev = (elm);                              \</span><br><span class="line">                (listelm)-&gt;field.le_prev = &amp;LIST_NEXT((elm), field);            \</span><br><span class="line">        &#125; while (0)</span><br></pre></td></tr></table></figure>
+<h4 id="参数-7"><a href="#参数-7" class="headerlink" title="参数"></a>参数</h4><p>listelm - 链表中原有储存单元指针</p>
+<p>elm - 新储存单元指针</p>
+<p>field - 链表项（数据类型定义为LIST_ENTRY）</p>
+<h4 id="作用-8"><a href="#作用-8" class="headerlink" title="作用"></a>作用</h4><p>将 elm 插到已有元素 listelm 之前。</p>
+<h3 id="LIST-INSERT-HEAD-head-elm-field"><a href="#LIST-INSERT-HEAD-head-elm-field" class="headerlink" title="LIST_INSERT_HEAD(head, elm, field)"></a>LIST_INSERT_HEAD(head, elm, field)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_INSERT_HEAD(head, elm, field) do &#123;                   		      \</span><br><span class="line">                if ((LIST_NEXT((elm), field) = LIST_FIRST((head))) != NULL)    	      \</span><br><span class="line">                        LIST_FIRST((head))-&gt;field.le_prev = &amp;LIST_NEXT((elm), field); \</span><br><span class="line">                LIST_FIRST((head)) = (elm);                                           \</span><br><span class="line">                (elm)-&gt;field.le_prev = &amp;LIST_FIRST((head));                           \</span><br><span class="line">        &#125; while (0)</span><br></pre></td></tr></table></figure>
+<h4 id="参数-8"><a href="#参数-8" class="headerlink" title="参数"></a>参数</h4><p>head - 链表头指针</p>
+<p>elm - 新储存单元指针</p>
+<p>field - 链表项（数据类型定义为LIST_ENTRY）</p>
+<h4 id="作用-9"><a href="#作用-9" class="headerlink" title="作用"></a>作用</h4><p>将elm 插到头部结构体指针head对应链表的头部</p>
+<h3 id="LIST-INSERT-TAIL-head-elm-field"><a href="#LIST-INSERT-TAIL-head-elm-field" class="headerlink" title="LIST_INSERT_TAIL(head, elm, field)"></a>LIST_INSERT_TAIL(head, elm, field)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_INSERT_TAIL(head, elm, field) do &#123;								\</span><br><span class="line">		if (LIST_FIRST((head)) != NULL) &#123;																						\</span><br><span class="line">        LIST_NEXT((elm), field) = LIST_FIRST((head));														\</span><br><span class="line">        while(LIST_NEXT(LIST_NEXT((elm), field), field) != NULL) &#123;							\</span><br><span class="line">        	LIST_NEXT((elm), field) = LIST_NEXT(LIST_NEXT((elm), field), field);	\</span><br><span class="line">				&#125;																																				\</span><br><span class="line">				LIST_NEXT(LIST_NEXT((elm), field), field) = (elm);											\</span><br><span class="line">				(elm)-&gt;field.le_prev = &amp;LIST_NEXT(LIST_NEXT((elm), field), field);			\</span><br><span class="line">				LIST_NEXT((elm), field) = NULL;																					\</span><br><span class="line">		&#125; else &#123;																																		\</span><br><span class="line">				LIST_INSERT_HEAD((head), (elm), field);																	\</span><br><span class="line">		&#125;																																						\</span><br><span class="line">	&#125; while (0)</span><br></pre></td></tr></table></figure>
+<h4 id="参数-9"><a href="#参数-9" class="headerlink" title="参数"></a>参数</h4><p>head - 链表头指针</p>
+<p>elm - 新储存单元指针</p>
+<p>field - 链表项（数据类型定义为LIST_ENTRY）</p>
+<h4 id="作用-10"><a href="#作用-10" class="headerlink" title="作用"></a>作用</h4><p>将elm 插到头部结构体指针head对应链表的尾部</p>
+<h3 id="LIST-NEXT-elm-field"><a href="#LIST-NEXT-elm-field" class="headerlink" title="LIST_NEXT(elm, field)"></a>LIST_NEXT(elm, field)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_NEXT(elm, field)   ((elm)-&gt;field.le_next)</span><br></pre></td></tr></table></figure>
+<h4 id="参数-10"><a href="#参数-10" class="headerlink" title="参数"></a>参数</h4><p>elm - 储存单元指针</p>
+<p>field - 链表项（数据类型定义为LIST_ENTRY，elm成员变量）</p>
+<h4 id="作用-11"><a href="#作用-11" class="headerlink" title="作用"></a>作用</h4><p>返回指向下一储存单元的指针</p>
+<h3 id="LIST-REMOVE-elm-field"><a href="#LIST-REMOVE-elm-field" class="headerlink" title="LIST_REMOVE(elm, field)"></a>LIST_REMOVE(elm, field)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_REMOVE(elm, field) do &#123;                                    	\</span><br><span class="line">                if (LIST_NEXT((elm), field) != NULL)                            \</span><br><span class="line">                        LIST_NEXT((elm), field)-&gt;field.le_prev =                \</span><br><span class="line">                                        (elm)-&gt;field.le_prev;                   \</span><br><span class="line">                *(elm)-&gt;field.le_prev = LIST_NEXT((elm), field);                \</span><br><span class="line">        &#125; while (0)</span><br></pre></td></tr></table></figure>
+<h4 id="参数-11"><a href="#参数-11" class="headerlink" title="参数"></a>参数</h4><p>elm - 储存单元指针</p>
+<p>field - 链表项（数据类型定义为LIST_ENTRY，elm成员变量）</p>
+<h4 id="作用-12"><a href="#作用-12" class="headerlink" title="作用"></a>作用</h4><p>从链表中移除elm</p>
+<h3 id="TAILQ-HEAD-name-type"><a href="#TAILQ-HEAD-name-type" class="headerlink" title="TAILQ_HEAD(name, type)"></a>TAILQ_HEAD(name, type)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#define TAILQ_HEAD(name, type)                                          	\</span><br><span class="line">        struct name &#123;                                                           \</span><br><span class="line">                struct type *tqh_first; /* first element */                     \</span><br><span class="line">                struct type **tqh_last; /* addr of last next element */         \</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="TAILQ-ENTRY-type"><a href="#TAILQ-ENTRY-type" class="headerlink" title="TAILQ_ENTRY(type)"></a>TAILQ_ENTRY(type)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#define TAILQ_ENTRY(type)                                               	\</span><br><span class="line">        struct &#123;                                                                \</span><br><span class="line">                struct type *tqe_next;  /* next element */                      \</span><br><span class="line">                struct type **tqe_prev; /* address of previous next element */  \</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、理解"><a href="#二、理解" class="headerlink" title="二、理解"></a>二、理解</h2><ul>
+<li>le_prev使用双重指针（?）</li>
+<li>链表内无malloc/free机制</li>
+<li>链表头的le_prev指向自身地址</li>
+</ul>
+
       
     </div>
 
@@ -759,7 +926,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-06 21:02:37" itemprop="dateModified" datetime="2021-09-06T21:02:37+08:00">2021-09-06</time>
+        <time title="Modified: 2021-09-06 21:02:38" itemprop="dateModified" datetime="2021-09-06T21:02:38+08:00">2021-09-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -849,7 +1016,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-08-24 15:29:49 / Modified: 16:31:22" itemprop="dateCreated datePublished" datetime="2021-08-24T15:29:49+08:00">2021-08-24</time>
+      <time title="Created: 2021-08-24 15:29:49 / Modified: 16:31:24" itemprop="dateCreated datePublished" datetime="2021-08-24T15:29:49+08:00">2021-08-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1065,139 +1232,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blore-lzn.github.io/2021/08/14/Codeforce/CF-731-div3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/Blore.jpg">
-      <meta itemprop="name" content="Blore">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blore's Home">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/14/Codeforce/CF-731-div3/" class="post-title-link" itemprop="url">CF-731-div3</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-14 14:30:00" itemprop="dateCreated datePublished" datetime="2021-08-14T14:30:00+08:00">2021-08-14</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-03-02 22:00:02" itemprop="dateModified" datetime="2022-03-02T22:00:02+08:00">2022-03-02</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">算法竞赛</span></a>
-        </span>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>10k</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div class="table-container">
-<table>
-<thead>
-<tr>
-<th>题目</th>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>D</th>
-<th>E</th>
-<th>F</th>
-<th>G</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>通过情况</td>
-<td>O</td>
-<td>O</td>
-<td>O</td>
-<td>O</td>
-<td>O</td>
-<td>O</td>
-<td>O</td>
-</tr>
-<tr>
-<td>难度</td>
-<td>800</td>
-<td>800</td>
-<td>1100</td>
-<td>1300</td>
-<td>1500</td>
-<td>1900</td>
-<td>2100</td>
-</tr>
-</tbody>
-</table>
-</div>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/14/Codeforce/CF-731-div3/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -1222,7 +1256,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">121k</span>
+    <span title="Symbols count total">125k</span>
   </span>
 </div>
 <div class="busuanzi-count">

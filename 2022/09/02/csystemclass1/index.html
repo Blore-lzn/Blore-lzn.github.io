@@ -20,23 +20,29 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blore-lzn.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blore&#39;s Home">
-<meta property="og:url" content="https://blore-lzn.github.io/tags/div2/index.html">
+<meta name="description" content="参考资料主要内容为6.2.5 C语言中的类型关系 变量声明在C语言中，声明一个变量具有两个基本要素：  1、对象类型 Object Type  2、变量名称（标示符） Identifier  对象类型约定了这段内存的类型和大小  变量名称则是这块内存的别名，用于识别定位这块内存  对象类型进一步分为：  1、非数组对象类型  2、数组对象类型 数组对象类型数组对象类型是多个同样的对象类型组成的一种">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C系统级编程CLASS1">
+<meta property="og:url" content="https://blore-lzn.github.io/2022/09/02/csystemclass1/index.html">
 <meta property="og:site_name" content="Blore&#39;s Home">
+<meta property="og:description" content="参考资料主要内容为6.2.5 C语言中的类型关系 变量声明在C语言中，声明一个变量具有两个基本要素：  1、对象类型 Object Type  2、变量名称（标示符） Identifier  对象类型约定了这段内存的类型和大小  变量名称则是这块内存的别名，用于识别定位这块内存  对象类型进一步分为：  1、非数组对象类型  2、数组对象类型 数组对象类型数组对象类型是多个同样的对象类型组成的一种">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blore-lzn.github.io/images/1.png">
+<meta property="article:published_time" content="2022-09-02T14:52:48.000Z">
+<meta property="article:modified_time" content="2022-09-02T15:08:31.541Z">
 <meta property="article:author" content="Blore">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blore-lzn.github.io/images/1.png">
 
 
-<link rel="canonical" href="https://blore-lzn.github.io/tags/div2/">
+<link rel="canonical" href="https://blore-lzn.github.io/2022/09/02/csystemclass1/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"tags/div2/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blore-lzn.github.io/2022/09/02/csystemclass1/","path":"2022/09/02/csystemclass1/","title":"C系统级编程CLASS1"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Tag: div2 | Blore's Home</title>
+<title>C系统级编程CLASS1 | Blore's Home</title>
   
 
 
@@ -102,7 +108,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -115,6 +121,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%85%B3%E7%B3%BB"><span class="nav-text">C语言中的类型关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="nav-text">变量声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B"><span class="nav-text">数组对象类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B"><span class="nav-text">指针对象类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typedef"><span class="nav-text">typedef</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1"><span class="nav-text">1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2"><span class="nav-text">2</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -181,151 +188,130 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">div2
-          <small>Tag</small>
-        </h2>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blore-lzn.github.io/2022/09/02/csystemclass1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Blore.jpg">
+      <meta itemprop="name" content="Blore">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blore's Home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C系统级编程CLASS1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="Created: 2022-09-02 22:52:48 / Modified: 23:08:31" itemprop="dateCreated datePublished" datetime="2022-09-02T22:52:48+08:00">2022-09-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>618</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a target="_blank" rel="noopener" href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3047.pdf">参考资料</a>主要内容为6.2.5</p>
+<h2 id="C语言中的类型关系"><a href="#C语言中的类型关系" class="headerlink" title="C语言中的类型关系"></a>C语言中的类型关系</h2><p><img src="https://blore-lzn.github.io/images/1.png" alt=""></p>
+<h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><p>在C语言中，声明一个变量具有两个基本要素： </p>
+<p>1、对象类型 Object Type </p>
+<p>2、变量名称（标示符） Identifier </p>
+<p>对象类型约定了这段内存的类型和大小 </p>
+<p>变量名称则是这块内存的别名，用于识别定位这块内存 </p>
+<p>对象类型进一步分为： </p>
+<p>1、非数组对象类型 </p>
+<p>2、数组对象类型</p>
+<h2 id="数组对象类型"><a href="#数组对象类型" class="headerlink" title="数组对象类型"></a>数组对象类型</h2><p>数组对象类型是多个同样的对象类型组成的一种<strong>一维</strong>构造类型 </p>
+<p>包含两要素：1、元素个数，2、元素的对象类型 </p>
+<p>1、数组对象类型的元素可以是非数组对象类型</p>
+<p>2、数组对象类型的元素也可以是其他数组对象类型</p>
+<p>注意：C语言数组对象类型其实都是一维的</p>
+<h2 id="指针对象类型"><a href="#指针对象类型" class="headerlink" title="指针对象类型"></a>指针对象类型</h2><p>1、指针对象类型是一个非数组对象类型 </p>
+<p>2、任何一种对象类型，都有指向其的一个指针对象类型，反之亦然 </p>
+<p>3、指针对象类型也有相应的指向其的另一个指针对象类型 </p>
+<p>4、指针对象类型也可以用来构造数组类型，作为数组对象中元素的对象类型 </p>
+<p>5、指针对象类型构成的数组对象也有其对应的指针对象</p>
+<p>int*[2]        -&gt;     PINT[2]</p>
+<p>PINT[2]    &lt;-&gt;     PINT(*)[2]（指向PINT[2]的指针）</p>
+<h2 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h2><h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>如何将int[2][3]定义为VVINT类型</p>
+<p>1: typedef int VVINT[2][3];</p>
+<p>2: typedef int VINT[3]; typedef VINT VVINT[2];</p>
+<h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><p>typedef int* PINT; </p>
+<p>1、int* p, q; </p>
+<p>2、PINT p, q;</p>
+<p>在1中q为int，在2中q为PINT</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-09-06T19:09:43+08:00"
-              content="2021-09-06">
-          09-06
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/09/06/Codeforce/CF-742-div2/" itemprop="url">
-            <span itemprop="name">CF#742 div2</span>
-          </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/01/shell/" rel="prev" title="shell">
+                  <i class="fa fa-chevron-left"></i> shell
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-08-22T22:54:27+08:00"
-              content="2021-08-22">
-          08-22
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/08/22/Codeforce/CF-738-div2/" itemprop="url">
-            <span itemprop="name">CF-738-div2</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-08-10T21:08:03+08:00"
-              content="2021-08-10">
-          08-10
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/08/10/Codeforce/CF-737-div2/" itemprop="url">
-            <span itemprop="name">CF-737-div2</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-08-02T22:57:14+08:00"
-              content="2021-08-02">
-          08-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/08/02/Codeforce/CF-736-div2/" itemprop="url">
-            <span itemprop="name">CF#736 div2</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-15T21:00:38+08:00"
-              content="2021-07-15">
-          07-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/15/Codeforce/CF-732-div2/" itemprop="url">
-            <span itemprop="name">CF#732 div2</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-12T22:17:48+08:00"
-              content="2021-07-12">
-          07-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/12/Codeforce/CF-730-div2/" itemprop="url">
-            <span itemprop="name">CF#730 div2</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
-  </div>
-  
-  
-  
-
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -396,7 +382,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Blore-lzn","repo":"blore-lzn.github.io","client_id":"f90fbb660b34594a2600","client_secret":"a879303fb0b8d2a2cb17e47f2ed90f9629085c1d","admin_user":"Blore-lzn","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"e5d4db99e7c086df041a9b9d3ecc4810"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Blore-lzn","repo":"blore-lzn.github.io","client_id":"f90fbb660b34594a2600","client_secret":"a879303fb0b8d2a2cb17e47f2ed90f9629085c1d","admin_user":"Blore-lzn","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"b6f622d0ae6aa1ced25d05b0e76f6964"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
