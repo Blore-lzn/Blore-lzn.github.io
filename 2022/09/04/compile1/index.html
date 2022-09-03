@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/tuan.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tuan.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tuan.png">
+  <link rel="mask-icon" href="/images/tuan.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blore-lzn.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="表驱动的LL(1)语法分析器和LR(1)语法分析器（JAVA实现） 本文主要参考《编译器设计（第二版）》（英文名：Engineering a Compiler） 源码链接：https:&#x2F;&#x2F;github.com&#x2F;Blore-lzn&#x2F;Compiler">
+<meta property="og:type" content="article">
+<meta property="og:title" content="表驱动的LL(1)语法分析器和LR(1)语法分析器（JAVA实现）">
+<meta property="og:url" content="https://blore-lzn.github.io/2022/09/04/compile1/index.html">
+<meta property="og:site_name" content="Blore&#39;s Home">
+<meta property="og:description" content="表驱动的LL(1)语法分析器和LR(1)语法分析器（JAVA实现） 本文主要参考《编译器设计（第二版）》（英文名：Engineering a Compiler） 源码链接：https:&#x2F;&#x2F;github.com&#x2F;Blore-lzn&#x2F;Compiler">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-03T17:18:11.000Z">
+<meta property="article:modified_time" content="2022-09-03T17:19:30.073Z">
+<meta property="article:author" content="Blore">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blore-lzn.github.io/2022/09/04/compile1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blore-lzn.github.io/2022/09/04/compile1/","path":"2022/09/04/compile1/","title":"表驱动的LL(1)语法分析器和LR(1)语法分析器（JAVA实现）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>表驱动的LL(1)语法分析器和LR(1)语法分析器（JAVA实现） | Blore's Home</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Blore's Home</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">article</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">9</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">4</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">23</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E9%A9%B1%E5%8A%A8%E7%9A%84LL-1-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E5%92%8CLR-1-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%EF%BC%88JAVA%E5%AE%9E%E7%8E%B0%EF%BC%89"><span class="nav-text">表驱动的LL(1)语法分析器和LR(1)语法分析器（JAVA实现）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">一、基本数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E5%BC%8F%EF%BC%88Production%EF%BC%89"><span class="nav-text">产生式（Production）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%B3%95%EF%BC%88Grammar%EF%BC%89"><span class="nav-text">文法（Grammar）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E7%A1%80%E9%9B%86%E5%90%88%E6%9E%84%E5%BB%BA"><span class="nav-text">二、基础集合构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-FIRST%E9%9B%86%E5%90%88"><span class="nav-text">1 FIRST集合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E4%B8%AA%E8%AF%AD%E6%B3%95%E7%AC%A6%E5%8F%B7"><span class="nav-text">单个语法符号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E4%B8%B2"><span class="nav-text">符号串</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-FOLLOW%E9%9B%86%E5%90%88"><span class="nav-text">2 FOLLOW集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-FIRST-%E9%9B%86%E5%90%88"><span class="nav-text">3 FIRST+集合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%A1%A8%E9%A9%B1%E5%8A%A8%E7%9A%84LL-1-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8"><span class="nav-text">三、表驱动的LL(1)语法分析器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9E%84%E9%80%A0LL-1-%E8%A1%A8"><span class="nav-text">1 构造LL(1)表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-LL-1-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E6%A1%86%E6%9E%B6"><span class="nav-text">2 LL(1)语法分析器框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%A1%A8%E9%A9%B1%E5%8A%A8%E7%9A%84LR-1-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8"><span class="nav-text">四、表驱动的LR(1)语法分析器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9E%84%E5%BB%BA%E8%A7%84%E8%8C%83%E6%97%8F"><span class="nav-text">1 构建规范族</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-LR-1-%E9%A1%B9%E7%BB%93%E6%9E%84"><span class="nav-text">(1) LR(1)项结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%A7%84%E8%8C%83%E7%BB%84%E7%BB%93%E6%9E%84"><span class="nav-text">(2) 规范组结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-closure%E8%BF%87%E7%A8%8B"><span class="nav-text">(3) closure过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-goto%E8%BF%87%E7%A8%8B"><span class="nav-text">(4) goto过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E6%9E%84%E5%BB%BACC"><span class="nav-text">(5) 构建CC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E5%A1%AB%E8%A1%A8"><span class="nav-text">(6) 填表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-LR-1-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E6%A1%86%E6%9E%B6"><span class="nav-text">2 LR(1)语法分析器框架</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Blore"
+      src="/images/Blore.jpg">
+  <p class="site-author-name" itemprop="name">Blore</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profiles/blore" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profiles&#x2F;blore" rel="noopener" target="_blank">Codeforces</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1137480882@qq.com" title="E-Mail → mailto:1137480882@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blore-lzn.github.io/2022/09/04/compile1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Blore.jpg">
+      <meta itemprop="name" content="Blore">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blore's Home">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          表驱动的LL(1)语法分析器和LR(1)语法分析器（JAVA实现）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-09-04 01:18:11 / Modified: 01:19:30" itemprop="dateCreated datePublished" datetime="2022-09-04T01:18:11+08:00">2022-09-04</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>12k</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="表驱动的LL-1-语法分析器和LR-1-语法分析器（JAVA实现）"><a href="#表驱动的LL-1-语法分析器和LR-1-语法分析器（JAVA实现）" class="headerlink" title="表驱动的LL(1)语法分析器和LR(1)语法分析器（JAVA实现）"></a>表驱动的LL(1)语法分析器和LR(1)语法分析器（JAVA实现）</h1><blockquote>
+<p>本文主要参考《编译器设计（第二版）》（英文名：Engineering a Compiler）</p>
+<p>源码链接：<a target="_blank" rel="noopener" href="https://github.com/Blore-lzn/Compiler">https://github.com/Blore-lzn/Compiler</a></p>
+</blockquote>
+<span id="more"></span>
+<h2 id="一、基本数据结构"><a href="#一、基本数据结构" class="headerlink" title="一、基本数据结构"></a>一、基本数据结构</h2><h3 id="产生式（Production）"><a href="#产生式（Production）" class="headerlink" title="产生式（Production）"></a>产生式（Production）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Production</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> String left; <span class="comment">// 左部符号</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> ArrayList&lt;String&gt; rights = <span class="keyword">new</span> ArrayList&lt;&gt;();  <span class="comment">// 右部符号串</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> handler;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> HANDLER = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Production</span><span class="params">(String left, String[] rights)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.left = left;</span><br><span class="line">    <span class="keyword">this</span>.rights.addAll(Arrays.asList(rights));</span><br><span class="line">    <span class="keyword">this</span>.handler = HANDLER++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == o) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass()) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Production that = (Production) o;</span><br><span class="line">    <span class="keyword">return</span> handler == that.handler &amp;&amp; Objects.equals(left, that.left) &amp;&amp;</span><br><span class="line">      Objects.equals(rights, that.rights);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Objects.hash(left, rights, handler);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> left + <span class="string">&quot; -&gt; &quot;</span> + rights;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="文法（Grammar）"><a href="#文法（Grammar）" class="headerlink" title="文法（Grammar）"></a>文法（Grammar）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Grammar</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> ArrayList&lt;String&gt; T = <span class="keyword">new</span> ArrayList&lt;&gt;();   <span class="comment">// 终结符</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> ArrayList&lt;String&gt; NT = <span class="keyword">new</span> ArrayList&lt;&gt;();   <span class="comment">// 非终结符</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> ArrayList&lt;Production&gt; prods = <span class="keyword">new</span> ArrayList&lt;&gt;();  <span class="comment">//产生式</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> HashMap&lt;String, ArrayList&lt;Production&gt;&gt; nt2prods = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addProduction</span><span class="params">(Production p)</span> </span>&#123;</span><br><span class="line">    prods.add(p);</span><br><span class="line">    nt2prods.computeIfAbsent(p.left, k -&gt; <span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">    nt2prods.get(p.left).add(p);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">for</span> (Production p : prods) &#123;</span><br><span class="line">      sb.append(p.toString()).append(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、基础集合构建"><a href="#二、基础集合构建" class="headerlink" title="二、基础集合构建"></a>二、基础集合构建</h2><h3 id="1-FIRST集合"><a href="#1-FIRST集合" class="headerlink" title="1 FIRST集合"></a>1 FIRST集合</h3><p>对于语法符号 $\alpha$，FIRST($\alpha$)是从$\alpha$推导出的语句开头可能出现的终结符集合（注意$\alpha$可以为单个语法符号也可以为符号串）</p>
+<h4 id="单个语法符号"><a href="#单个语法符号" class="headerlink" title="单个语法符号"></a>单个语法符号</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">generateFirstSet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  firstSet.clear();</span><br><span class="line">  <span class="comment">/* 终结符的FIRST集是其本身 */</span></span><br><span class="line">  <span class="keyword">for</span> (String s : grammar.T) &#123;</span><br><span class="line">    HashSet&lt;String&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    set.add(s);</span><br><span class="line">    firstSet.put(s, set);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (String s : grammar.NT) &#123;</span><br><span class="line">    firstSet.put(s, <span class="keyword">new</span> HashSet&lt;&gt;());</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">boolean</span> changed = <span class="keyword">true</span>;</span><br><span class="line">  <span class="keyword">while</span> (changed) &#123;</span><br><span class="line">    changed = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Production p : grammar.prods) &#123;</span><br><span class="line">      HashSet&lt;String&gt; rhs = <span class="keyword">new</span> HashSet&lt;&gt;(firstSet.get(p.rights.get(<span class="number">0</span>)));</span><br><span class="line">      firstSet.get(p.rights.get(<span class="number">0</span>)).stream().filter(s -&gt; !s.equals(EPS))</span><br><span class="line">        .forEach(rhs::add);</span><br><span class="line">      <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span> (i &lt; p.rights.size() - <span class="number">1</span> &amp;&amp; firstSet.get(p.rights.get(i)).contains(EPS)) &#123;</span><br><span class="line">        firstSet.get(p.rights.get(i + <span class="number">1</span>)).stream().filter(s -&gt; !s.equals(EPS))</span><br><span class="line">          .forEach(rhs::add);</span><br><span class="line">        i = i + <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (i == p.rights.size() - <span class="number">1</span> &amp;&amp; firstSet.get(p.rights.get(i)).contains(EPS)) &#123;</span><br><span class="line">        rhs.add(EPS);</span><br><span class="line">      &#125;</span><br><span class="line">      rhs.addAll(firstSet.get(p.left));</span><br><span class="line">      <span class="keyword">if</span> (!Objects.equals(firstSet.get(p.left), rhs)) &#123;</span><br><span class="line">        changed = <span class="keyword">true</span>;</span><br><span class="line">        firstSet.put(p.left, rhs);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="符号串"><a href="#符号串" class="headerlink" title="符号串"></a>符号串</h4><p>(需先计算单个语法符号的FIRST集合)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> HashSet&lt;String&gt; <span class="title">getFirstSetOfStrings</span><span class="params">(ArrayList&lt;String&gt; symbols)</span> </span>&#123;</span><br><span class="line">  HashSet&lt;String&gt; res = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">  <span class="keyword">for</span> (String s : symbols) &#123;</span><br><span class="line">    res.addAll(firstSet.get(s));</span><br><span class="line">    <span class="keyword">if</span> (!firstSet.get(s).contains(EPS)) &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-FOLLOW集合"><a href="#2-FOLLOW集合" class="headerlink" title="2 FOLLOW集合"></a>2 FOLLOW集合</h3><p>对于<strong>非终结符</strong> $\alpha$，FOLLOW($\alpha$)是在语句中紧接着$\alpha$出现的单词的集合</p>
+<p>(需先计算FIRST集合)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">generateFollowSet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  followSet.clear();</span><br><span class="line">  <span class="keyword">for</span> (String s : grammar.NT) &#123;</span><br><span class="line">    followSet.put(s, <span class="keyword">new</span> HashSet&lt;&gt;());</span><br><span class="line">  &#125;</span><br><span class="line">  followSet.get(S).add(EOF);</span><br><span class="line">  <span class="keyword">boolean</span> changed = <span class="keyword">true</span>;</span><br><span class="line">  <span class="keyword">while</span> (changed) &#123;</span><br><span class="line">    changed = <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (Production p : grammar.prods) &#123;</span><br><span class="line">      HashSet&lt;String&gt; trailer = <span class="keyword">new</span> HashSet&lt;&gt;(followSet.get(p.left));</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = p.rights.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        String bi = p.rights.get(i);</span><br><span class="line">        <span class="keyword">if</span> (isNT(bi)) &#123;</span><br><span class="line">          HashSet&lt;String&gt; newFollowSet = <span class="keyword">new</span> HashSet&lt;&gt;(trailer);</span><br><span class="line">          newFollowSet.addAll(followSet.get(bi));</span><br><span class="line">          <span class="keyword">if</span> (!Objects.equals(newFollowSet, followSet.get(bi))) &#123;</span><br><span class="line">            changed = <span class="keyword">true</span>;</span><br><span class="line">            followSet.put(bi, newFollowSet);</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span> (firstSet.get(bi).contains(EPS)) &#123;</span><br><span class="line">            firstSet.get(bi).stream().filter(s -&gt; !s.equals(EPS))</span><br><span class="line">              .forEach(trailer::add);</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            trailer = <span class="keyword">new</span> HashSet&lt;&gt;(firstSet.get(bi));</span><br><span class="line">          &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          trailer = <span class="keyword">new</span> HashSet&lt;&gt;(firstSet.get(bi));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-FIRST-集合"><a href="#3-FIRST-集合" class="headerlink" title="3 FIRST+集合"></a>3 FIRST+集合</h3><p>增强的FIRST集合（主要解决FIRST存在空串的情况）</p>
+<p>无回溯的语法必定具有的性质：对任何匹配多个产生式的非终结符$A$，$A\rightarrow\beta_1\vert\beta_2\vert\dots\vert\beta_n$</p>
+<script type="math/tex; mode=display">
+FIRST^+(A\rightarrow\beta_i)\cap FIRST^+(A\rightarrow\beta_j) = \emptyset</script><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">generateFirstPlusSet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  firstPlusSet.clear();</span><br><span class="line">  <span class="keyword">for</span> (Production p : grammar.prods) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!p.rights.isEmpty()) &#123;</span><br><span class="line">      HashSet&lt;String&gt; newFirstPlusSet = getFirstSetOfStrings(p.rights);</span><br><span class="line">      <span class="keyword">if</span> (!newFirstPlusSet.contains(EPS)) &#123;</span><br><span class="line">        firstPlusSet.put(p, newFirstPlusSet);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        newFirstPlusSet.addAll(followSet.get(p.left));</span><br><span class="line">        firstPlusSet.put(p, newFirstPlusSet);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、表驱动的LL-1-语法分析器"><a href="#三、表驱动的LL-1-语法分析器" class="headerlink" title="三、表驱动的LL(1)语法分析器"></a>三、表驱动的LL(1)语法分析器</h2><h3 id="1-构造LL-1-表"><a href="#1-构造LL-1-表" class="headerlink" title="1 构造LL(1)表"></a>1 构造LL(1)表</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> HashMap&lt;Pair&lt;String, String&gt;, Production&gt; table = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeTable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  generateFirstSet();</span><br><span class="line">  generateFollowSet();</span><br><span class="line">  generateFirstPlusSet();</span><br><span class="line">  <span class="keyword">for</span> (Production p : grammar.prods) &#123;</span><br><span class="line">    firstPlusSet.get(p).stream().filter(<span class="keyword">this</span>::isT)</span><br><span class="line">      .forEach(w -&gt; table.put(<span class="keyword">new</span> Pair&lt;&gt;(p.left, w), p));</span><br><span class="line">    <span class="keyword">if</span> (firstPlusSet.get(p).contains(EOF)) &#123;</span><br><span class="line">      table.put(<span class="keyword">new</span> Pair&lt;&gt;(p.left, EOF), p);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-LL-1-语法分析器框架"><a href="#2-LL-1-语法分析器框架" class="headerlink" title="2 LL(1)语法分析器框架"></a>2 LL(1)语法分析器框架</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">parse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Stack&lt;String&gt; st = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">  String word = lexer.nextToken();</span><br><span class="line">  st.push(EOF);</span><br><span class="line">  st.push(S);</span><br><span class="line">  String focus = st.peek();</span><br><span class="line">  <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (focus.equals(EOF) &amp;&amp; word.equals(EOF)) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isT(focus) || focus.equals(EOF)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (Objects.equals(focus, word)) &#123;</span><br><span class="line">        st.pop();</span><br><span class="line">        word = lexer.nextToken();</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      Production p = table.get(<span class="keyword">new</span> Pair&lt;&gt;(focus, word));</span><br><span class="line">      <span class="keyword">if</span> (p != <span class="keyword">null</span>) &#123;</span><br><span class="line">        st.pop();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = p.rights.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">          <span class="keyword">if</span> (!p.rights.get(i).equals(EPS)) &#123;</span><br><span class="line">            st.push(p.rights.get(i));</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    focus = st.peek();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、表驱动的LR-1-语法分析器"><a href="#四、表驱动的LR-1-语法分析器" class="headerlink" title="四、表驱动的LR(1)语法分析器"></a>四、表驱动的LR(1)语法分析器</h2><h3 id="1-构建规范族"><a href="#1-构建规范族" class="headerlink" title="1 构建规范族"></a>1 构建规范族</h3><h4 id="1-LR-1-项结构"><a href="#1-LR-1-项结构" class="headerlink" title="(1) LR(1)项结构"></a>(1) LR(1)项结构</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">LR1Item</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> Production p;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> pos;  <span class="comment">// ·在p.rights[pos]前</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> String next;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">LR1Item</span><span class="params">(Production p, <span class="keyword">int</span> pos, String next)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.p = p;</span><br><span class="line">    <span class="keyword">this</span>.pos = pos;</span><br><span class="line">    <span class="keyword">this</span>.next = next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFinal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p.left.equals(S) &amp;&amp; pos == p.rights.size() &amp;&amp; next.equals(EOF);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getSymAfterDot</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (pos &gt;= p.rights.size()) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> p.rights.get(pos);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasSymAfterDot</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> pos &lt; p.rights.size();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dotBeforeNT</span><span class="params">(Grammar grammar)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> grammar.NT.contains(getSymAfterDot());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dotBeforeSym</span><span class="params">(String sym)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Objects.equals(sym, getSymAfterDot());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == o) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass()) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    LR1Item lr1Item = (LR1Item) o;</span><br><span class="line">    <span class="keyword">return</span> pos == lr1Item.pos &amp;&amp; Objects.equals(p, lr1Item.p) &amp;&amp;</span><br><span class="line">      Objects.equals(next, lr1Item.next);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Objects.hash(p, pos, next);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;String&gt; rights = <span class="keyword">new</span> ArrayList&lt;&gt;(p.rights);</span><br><span class="line">    rights.add(pos, <span class="string">&quot;·&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;[&quot;</span> + p.left + <span class="string">&quot; -&gt; &quot;</span> + rights + <span class="string">&quot;, &quot;</span> + next + <span class="string">&quot;]&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-规范组结构"><a href="#2-规范组结构" class="headerlink" title="(2) 规范组结构"></a>(2) 规范组结构</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">CCSet</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> HashSet&lt;LR1Item&gt; items = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">  <span class="keyword">public</span> HashMap&lt;String, CCSet&gt; edges = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> handler = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHandler</span><span class="params">(<span class="keyword">int</span> handler)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.handler = handler;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(String s, CCSet ccSet)</span> </span>&#123;</span><br><span class="line">    edges.put(s, ccSet);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> HashSet&lt;String&gt; <span class="title">getAllSymsAfterDot</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    HashSet&lt;String&gt; res = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (LR1Item item : items) &#123;</span><br><span class="line">      <span class="keyword">if</span> (item.getSymAfterDot() != <span class="keyword">null</span>) &#123;</span><br><span class="line">        res.add(item.getSymAfterDot());</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == o) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass()) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    CCSet ccSet = (CCSet) o;</span><br><span class="line">    <span class="keyword">return</span> Objects.equals(items, ccSet.items);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Objects.hash(items);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;CC&quot;</span> + handler;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-closure过程"><a href="#3-closure过程" class="headerlink" title="(3) closure过程"></a>(3) closure过程</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> CCSet <span class="title">closure</span><span class="params">(CCSet s)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">boolean</span> changed = <span class="keyword">true</span>;</span><br><span class="line">  <span class="keyword">while</span> (changed) &#123;</span><br><span class="line">    changed = <span class="keyword">false</span>;</span><br><span class="line">    HashSet&lt;LR1Item&gt; newItems = <span class="keyword">new</span> HashSet&lt;&gt;(s.items);</span><br><span class="line">    <span class="keyword">for</span> (LR1Item item : s.items) &#123;</span><br><span class="line">      <span class="keyword">if</span> (item.dotBeforeNT(grammar)) &#123;</span><br><span class="line">        String nt = item.p.rights.get(item.pos);</span><br><span class="line">        ArrayList&lt;String&gt; succ = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = item.pos + <span class="number">1</span>; i &lt; item.p.rights.size(); i++) &#123;</span><br><span class="line">          succ.add(item.p.rights.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">        succ.add(item.next);</span><br><span class="line">        HashSet&lt;String&gt; succFirstSet = getFirstSetOfStrings(succ);</span><br><span class="line">        <span class="keyword">for</span> (Production p : grammar.nt2prods.get(nt)) &#123;</span><br><span class="line">          <span class="keyword">for</span> (String b : succFirstSet) &#123;</span><br><span class="line">            LR1Item it = <span class="keyword">new</span> LR1Item(p, <span class="number">0</span>, b);</span><br><span class="line">            <span class="keyword">if</span> (!newItems.contains(it)) &#123;</span><br><span class="line">              changed = <span class="keyword">true</span>;</span><br><span class="line">              newItems.add(it);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    s.items = newItems;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-goto过程"><a href="#4-goto过程" class="headerlink" title="(4) goto过程"></a>(4) goto过程</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> CCSet <span class="title">gotoFunc</span><span class="params">(CCSet s, String x)</span> </span>&#123;</span><br><span class="line">  CCSet moved = <span class="keyword">new</span> CCSet();</span><br><span class="line">  <span class="keyword">for</span> (LR1Item i : s.items) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i.dotBeforeSym(x)) &#123;</span><br><span class="line">      moved.items.add(<span class="keyword">new</span> LR1Item(i.p, i.pos + <span class="number">1</span>, i.next));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> closure(moved);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-构建CC"><a href="#5-构建CC" class="headerlink" title="(5) 构建CC"></a>(5) 构建<em>CC</em></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeCCSets</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  CCSet cc0 = <span class="keyword">new</span> CCSet();</span><br><span class="line">  <span class="keyword">for</span> (Production p : grammar.nt2prods.get(S)) &#123;</span><br><span class="line">    cc0.items.add(<span class="keyword">new</span> LR1Item(p, <span class="number">0</span>, EOF));</span><br><span class="line">  &#125;</span><br><span class="line">  cc0 = closure(cc0);</span><br><span class="line">  allCCSets.add(cc0);</span><br><span class="line">  <span class="keyword">boolean</span> changed = <span class="keyword">true</span>;</span><br><span class="line">  HashSet&lt;CCSet&gt; vis = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">  <span class="keyword">while</span> (changed) &#123;</span><br><span class="line">    changed = <span class="keyword">false</span>;</span><br><span class="line">    ArrayList&lt;CCSet&gt; newAllCCSets = <span class="keyword">new</span> ArrayList&lt;&gt;(allCCSets);</span><br><span class="line">    <span class="keyword">for</span> (CCSet cc : allCCSets) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!vis.contains(cc)) &#123;</span><br><span class="line">        vis.add(cc);</span><br><span class="line">        <span class="keyword">for</span> (String x : cc.getAllSymsAfterDot()) &#123;</span><br><span class="line">          CCSet temp = gotoFunc(cc, x);</span><br><span class="line">          <span class="keyword">if</span> (!newAllCCSets.contains(temp)) &#123;</span><br><span class="line">            changed = <span class="keyword">true</span>;</span><br><span class="line">            newAllCCSets.add(temp);</span><br><span class="line">          &#125;</span><br><span class="line">          cc.addEdge(x, temp);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    allCCSets = newAllCCSets;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 编号（可省略）</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; allCCSets.size(); i++) &#123;</span><br><span class="line">    allCCSets.get(i).setHandler(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6-填表"><a href="#6-填表" class="headerlink" title="(6) 填表"></a>(6) 填表</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeTable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (CCSet cc : allCCSets) &#123;</span><br><span class="line">    <span class="keyword">for</span> (LR1Item item : cc.items) &#123;</span><br><span class="line">      <span class="keyword">if</span> (item.hasSymAfterDot() &amp;&amp; isT(item.getSymAfterDot()) &amp;&amp;</span><br><span class="line">          cc.edges.containsKey(item.getSymAfterDot())) &#123;</span><br><span class="line">        actionMap.put(<span class="keyword">new</span> Pair&lt;&gt;(cc, item.getSymAfterDot()),</span><br><span class="line">                      <span class="keyword">new</span> Pair&lt;&gt;(SHIFT, cc.edges.get(item.getSymAfterDot())));</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!item.hasSymAfterDot()) &#123;</span><br><span class="line">        actionMap.put(<span class="keyword">new</span> Pair&lt;&gt;(cc, item.next),</span><br><span class="line">                      <span class="keyword">new</span> Pair&lt;&gt;(REDUCE, item.p));</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 原文伪代码为else if</span></span><br><span class="line">      <span class="keyword">if</span> (item.isFinal()) &#123;</span><br><span class="line">        actionMap.put(<span class="keyword">new</span> Pair&lt;&gt;(cc, EOF),</span><br><span class="line">                      <span class="keyword">new</span> Pair&lt;&gt;(ACCEPTED, <span class="keyword">null</span>));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (String nt : grammar.NT) &#123;</span><br><span class="line">      <span class="keyword">if</span> (cc.edges.containsKey(nt)) &#123;</span><br><span class="line">        gotoMap.put(<span class="keyword">new</span> Pair&lt;&gt;(cc, nt), cc.edges.get(nt));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-LR-1-语法分析器框架"><a href="#2-LR-1-语法分析器框架" class="headerlink" title="2 LR(1)语法分析器框架"></a>2 LR(1)语法分析器框架</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">parse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Stack&lt;Object&gt; st = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">  st.push(<span class="string">&quot;$&quot;</span>);</span><br><span class="line">  st.push(allCCSets.get(<span class="number">0</span>));</span><br><span class="line">  CCSet state;</span><br><span class="line">  String word = lexer.nextToken();</span><br><span class="line">  <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">    state = (CCSet) st.peek();</span><br><span class="line">    Pair&lt;String, Object&gt; action = actionMap.get(<span class="keyword">new</span> Pair&lt;&gt;(state, word));</span><br><span class="line">    <span class="keyword">if</span> (action == <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (action.getFirst().equals(REDUCE)) &#123;</span><br><span class="line">      Production p = ((Production) action.getSecond());</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; p.rights.size(); i++) &#123;</span><br><span class="line">        st.pop();</span><br><span class="line">        st.pop();</span><br><span class="line">      &#125;</span><br><span class="line">      state = (CCSet) st.peek();</span><br><span class="line">      st.push(p.left);</span><br><span class="line">      st.push(gotoMap.get(<span class="keyword">new</span> Pair&lt;&gt;(state, p.left)));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (action.getFirst().equals(SHIFT)) &#123;</span><br><span class="line">      st.push(word);</span><br><span class="line">      st.push(action.getSecond());</span><br><span class="line">      word = lexer.nextToken();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (action.getFirst().equals(ACCEPTED)) &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/02/csystemclass1/" rel="prev" title="C系统级编程CLASS1">
+                  <i class="fa fa-chevron-left"></i> C系统级编程CLASS1
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Blore</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">137k</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Blore-lzn","repo":"blore-lzn.github.io","client_id":"f90fbb660b34594a2600","client_secret":"a879303fb0b8d2a2cb17e47f2ed90f9629085c1d","admin_user":"Blore-lzn","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"f81ae74f0d4cc53ebb7ab6a8bb6845a3"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
